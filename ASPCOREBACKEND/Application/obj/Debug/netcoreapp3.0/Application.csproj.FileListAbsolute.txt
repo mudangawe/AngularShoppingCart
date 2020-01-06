@@ -1,0 +1,8 @@
+C:\source\Angular Project\Shopping cart\ASPCOREBACKEND\Application\bin\Debug\netcoreapp3.0\Application.deps.json
+C:\source\Angular Project\Shopping cart\ASPCOREBACKEND\Application\bin\Debug\netcoreapp3.0\Application.dll
+C:\source\Angular Project\Shopping cart\ASPCOREBACKEND\Application\bin\Debug\netcoreapp3.0\Application.pdb
+C:\source\Angular Project\Shopping cart\ASPCOREBACKEND\Application\obj\Debug\netcoreapp3.0\Application.csprojAssemblyReference.cache
+C:\source\Angular Project\Shopping cart\ASPCOREBACKEND\Application\obj\Debug\netcoreapp3.0\Application.AssemblyInfoInputs.cache
+C:\source\Angular Project\Shopping cart\ASPCOREBACKEND\Application\obj\Debug\netcoreapp3.0\Application.AssemblyInfo.cs
+C:\source\Angular Project\Shopping cart\ASPCOREBACKEND\Application\obj\Debug\netcoreapp3.0\Application.dll
+C:\source\Angular Project\Shopping cart\ASPCOREBACKEND\Application\obj\Debug\netcoreapp3.0\Application.pdb

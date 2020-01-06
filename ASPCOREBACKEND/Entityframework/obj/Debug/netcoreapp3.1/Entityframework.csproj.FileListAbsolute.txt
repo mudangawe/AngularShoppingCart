@@ -1,0 +1,7 @@
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\Entityframework\bin\Debug\netcoreapp3.1\Entityframework.deps.json
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\Entityframework\bin\Debug\netcoreapp3.1\Entityframework.dll
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\Entityframework\bin\Debug\netcoreapp3.1\Entityframework.pdb
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\Entityframework\obj\Debug\netcoreapp3.1\Entityframework.AssemblyInfoInputs.cache
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\Entityframework\obj\Debug\netcoreapp3.1\Entityframework.AssemblyInfo.cs
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\Entityframework\obj\Debug\netcoreapp3.1\Entityframework.dll
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\Entityframework\obj\Debug\netcoreapp3.1\Entityframework.pdb
