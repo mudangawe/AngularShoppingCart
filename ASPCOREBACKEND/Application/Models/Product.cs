@@ -10,7 +10,7 @@ namespace Application.Models
         public int ProductID { get; set; }
         public string Name { get; set; }
         public string Brand { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
         public int PriceLevel { get; set; }
         public string Categories { get; set; }
         public string Destription { get; set; }

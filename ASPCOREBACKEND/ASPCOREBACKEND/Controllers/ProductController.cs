@@ -40,27 +40,27 @@ namespace ASPCOREBACKEND.Controllers
             return personDto;
         }
         [HttpPost("categories")]
-        public IEnumerable<Product> GetProduct([FromBody] CategoriesDTO categoriesDTO)
+        public async Task<IEnumerable<Product>>  GetProduct([FromBody] CategoriesDTO categoriesDTO)
         {
-            if (categoriesDTO.BrandName == null && categoriesDTO.PriceLevel == 0)
-            {
-                return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName);
-            }
-            else if (categoriesDTO.CategoriesName != null && categoriesDTO.PriceLevel == 0)
-            {
-                return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName && 
-                          x.Brand == categoriesDTO.BrandName);
-            }
-            else if (categoriesDTO.CategoriesName == null && categoriesDTO.PriceLevel != 0)
-            {
-                return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName &&
-                         x.PriceLevel == categoriesDTO.PriceLevel);
-            }
-            else 
-            {
-                return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName &&
-                            x.PriceLevel == categoriesDTO.PriceLevel && x.Brand == categoriesDTO.BrandName);
-            }
+                    if (categoriesDTO.BrandName == null && categoriesDTO.PriceLevel == 0)
+                        {
+                            return  applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName);
+                        }
+                        else if (categoriesDTO.BrandName != null && categoriesDTO.PriceLevel == 0)
+                        {
+                            return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName && 
+                                      x.Brand == categoriesDTO.BrandName);
+                        }
+                        else if (categoriesDTO.BrandName == null && categoriesDTO.PriceLevel != 0)
+                        {
+                                return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName &&
+                                         x.PriceLevel== categoriesDTO.PriceLevel);
+                        }
+                        else 
+                        {
+                            return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName &&
+                                        x.PriceLevel == categoriesDTO.PriceLevel && x.Brand == categoriesDTO.BrandName);
+                        }
 
         }
         [HttpPost]
@@ -72,7 +72,23 @@ namespace ASPCOREBACKEND.Controllers
         {
             product.ImageUrl =  SaveImageToUrl(product);
             product.DateModified = DateTime.Now;
-           
+
+            if (Convert.ToInt32(product.Price) < 1000)
+            {
+                product.PriceLevel = 1;
+            } 
+            else if (Convert.ToInt32(product.Price) >= 1000 && Convert.ToInt32(product.Price) < 10000)
+            {
+                product.PriceLevel = 2;
+            } 
+            else if (Convert.ToInt32(product.Price) >= 10000 && Convert.ToInt32(product.Price) < 30000)
+            {
+                product.PriceLevel = 3;
+            }
+            else  if (Convert.ToInt32(product.Price) >= 30000)
+            {
+                product.PriceLevel = 4;
+            }
             applicationContext.Products.Add(product);
             applicationContext.SaveChanges();
             return true;

@@ -4854,11 +4854,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Entityframework\\Entityframework.csproj",
+      "projectUniqueName": "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Entityframework\\Entityframework.csproj",
       "projectName": "Entityframework",
-      "projectPath": "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Entityframework\\Entityframework.csproj",
+      "projectPath": "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Entityframework\\Entityframework.csproj",
       "packagesPath": "C:\\Users\\v-girama\\.nuget\\packages\\",
-      "outputPath": "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Entityframework\\obj\\",
+      "outputPath": "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Entityframework\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -4879,8 +4879,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj": {
-              "projectPath": "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj"
+            "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj": {
+              "projectPath": "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj"
             }
           }
         }

@@ -65,7 +65,7 @@ namespace Entityframework.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Brand = table.Column<string>(nullable: true),
-                    Price = table.Column<string>(nullable: true),
+                    Price = table.Column<double>(nullable: false),
                     PriceLevel = table.Column<int>(nullable: false),
                     Categories = table.Column<string>(nullable: true),
                     Destription = table.Column<string>(nullable: true),

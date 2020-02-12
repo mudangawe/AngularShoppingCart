@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj": {}
+    "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj": {
+    "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj",
+        "projectPath": "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\v-girama\\.nuget\\packages\\",
-        "outputPath": "C:\\source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\obj\\",
+        "outputPath": "C:\\Source\\Angular Project\\Shopping cart\\ASPCOREBACKEND\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
