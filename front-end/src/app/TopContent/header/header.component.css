@@ -1,0 +1,28 @@
+.grid-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2px ;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.companyDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cartItems{
+    margin-top: 2%;;
+   
+}
+
+.companyName{
+    margin-top: 10%;
+}
+.dropdown-item button{
+   border-radius: 0.2rem;
+  margin: 20px;
+
+}

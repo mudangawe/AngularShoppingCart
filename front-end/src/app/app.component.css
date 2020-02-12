@@ -1,0 +1,18 @@
+#page-container{
+ position: relative;
+ min-height: 100vh;
+ overflow: auto;
+}
+#content-wrap{
+    padding-bottom: 2.5rem;
+}
+@media only screen and (min-width: 1400px)  {
+
+  #content-wrap{
+    margin-left: 16%;
+    margin-right: 16%;
+   
+  }
+
+
+}

@@ -1,0 +1,31 @@
+
+<div class="filterHeading">
+   <h6 >  Filter By Below </h6> 
+</div>
+<div class="options">
+        
+            <select  class="custom-select" id="inputGroupSelect03" 
+            aria-label="View on price range" style="width: 10.6rem;"
+             required [(ngModel)]='priceSelected' 
+             (ngModelChange)= 'onSelectPricRange($event)'>
+                    <option  [ngValue]="undefined"   >Price</option>
+                    <option *ngFor="let option of PriceOption; index as i" [value]="option.code">{{option.name}}</option>
+                  
+                  </select>
+    
+  
+  
+            <select  class="custom-select" id="inputGroupSelect01"   style="width: 10.6rem;"
+            required [(ngModel)]='brandSelected' 
+             (ngModelChange)= 'onSelectBrand($event)' >
+                    <option  [ngValue]="undefined"  >Choose Brand</option>
+                    <option *ngFor="let option of brandOption" [value]="option">{{option}}</option>
+                  
+                  </select>
+   
+
+</div>
+<app-products [filter]="filterTemplate" ></app-products>
+
+
+

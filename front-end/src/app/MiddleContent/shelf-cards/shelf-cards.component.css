@@ -1,0 +1,25 @@
+.shelf-cards{
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+   margin-top: 2%;
+}
+
+.shelves{
+    display: flex;
+    justify-content: space-around;
+     flex-direction: row;
+    flex-wrap: wrap;
+}
+.shelves button
+{
+    border-bottom: 5px  solid black;
+    padding-left: 5%;
+    border-radius: 4px;
+}
+#arrow{
+    text-align:right;
+    padding-left: 40%;
+    font-size: 1.2rem;
+}
+

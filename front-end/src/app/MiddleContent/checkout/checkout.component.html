@@ -1,0 +1,35 @@
+<div>
+    <h1>Checkout</h1>
+    <hr>
+</div>
+<div class="row" *ngFor="let item of cart;let i = index">
+        <div class="col-sm-8">
+            <h5>{{item.name}} </h5>
+            <span> Quality  </span>  
+        </div>
+        <div class="col-sm">
+            {{item.subTotal}}
+        </div>
+
+</div>
+<div class="row">
+    <div class="col-sm-9">
+        <h5>Total</h5>
+    </div>
+    <div class="col-sm-2">
+        0
+    </div>
+
+</div>
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-credit" role="tab" aria-controls="nav-credit" aria-selected="true">Credit Card</a>
+        <a class="nav-item nav-link" id="nav-paypal-tab" data-toggle="tab" href="#nav-paypal" role="tab" aria-controls="nav-paypal" aria-selected="false">Paypal</a>
+        <a class="nav-item nav-link" id="nav-debit-tab" data-toggle="tab" href="#nav-debit" role="tab" aria-controls="nav-debit" aria-selected="false">Debit card</a>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-credit" role="tabpanel" aria-labelledby="nav-home-tab"><app-credit-card-form></app-credit-card-form></div>
+    <div class="tab-pane fade" id="nav-paypal" role="tabpanel" aria-labelledby="nav-profile-tab">Frans</div>
+    <div class="tab-pane fade" id="nav-debit" role="tabpanel" aria-labelledby="nav-contact-tab">Phuti</div>
+  </div>

@@ -1,0 +1,5 @@
+ul li{
+    list-style-type: circle;
+    display: inline;
+    padding: 0.4rem;
+}

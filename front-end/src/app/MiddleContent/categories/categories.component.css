@@ -1,0 +1,11 @@
+.options{
+    display: flex;
+    flex-direction: row;
+   
+    justify-content: space-around;
+}
+.filterHeading
+{
+    text-align: center;
+    margin-top:1.6rem;
+}

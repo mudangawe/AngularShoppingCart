@@ -1,0 +1,13 @@
+.bodyOfCart{
+  
+    margin-top: 30%;;
+}
+@media screen and (max-width:575px)
+{
+    .bodyOfCart{
+        margin: 5%;
+       
+        
+    }
+
+}

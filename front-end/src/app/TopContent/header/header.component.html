@@ -1,0 +1,25 @@
+<app-top-link></app-top-link>
+<div class="grid-container">
+    
+    <div class="companyDetails">
+        <div class="companyName"><h3>Furniture</h3></div>
+      
+    </div>
+    <div>
+        <a routerLink="/login">login </a>|<a routerLink="/register">register</a>  
+    </div>
+    <div class="cartItems"> 
+            <div class="dropdown">
+
+                   <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                    <fa-icon [icon]="cart"  size="1x" ></fa-icon>
+                    <span > Cart:({{CartItems.length }}) </span></button>
+                
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 16rem;"> 
+                        <app-cart></app-cart>
+
+                    </div>
+            </div>
+            
+    </div>
+</div>

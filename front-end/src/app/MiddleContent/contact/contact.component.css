@@ -1,0 +1,28 @@
+
+.contactUsForm{
+   box-shadow: 0 0 0 5px #0002;
+   background-color: #0002;
+   padding: 1.8rem;
+   display: flex;
+   flex-direction: column;
+}
+.address ul li{
+    list-style-type: none;
+}
+.contactUsPage{
+    position: relative;
+    overflow: hidden;
+    margin:2%;
+    
+
+}
+
+@media screen and (max-width: 900px)
+{
+    .iteams{
+        margin-bottom: 20px;
+    }
+    .iteams iframe{
+        align-content: center;
+    }
+}
