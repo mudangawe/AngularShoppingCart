@@ -2,7 +2,7 @@
 <div id="'loginRegister'">
     <h2 align="center">{{title}} </h2>
 <form [formGroup]="loginGroup"  class="loginForm" (ngSubmit)="onSubmit()">
-    
+    <span class="error"> {{errorMessage}}</span>
     <div class="form-group">
         <label>Email</label>
         <input type="text" class="form-control" formControlName="Email">

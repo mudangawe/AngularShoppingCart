@@ -4,7 +4,9 @@ import {User} from '../../Interface/Filter';
 import {HTTPRequestService} from '../../services/httprequest.service';
 import {MatDialog} from '@angular/material/dialog'
 import {IteamsService} from '../../services/iteams.service'
-import {MessageComponent} from '../../shared/dialogs/message/message.component'
+import {MessageComponent} from '../../shared/dialogs/message/message.component';
+import {UserDetailsService} from '../../services/user-details.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,13 +15,14 @@ import {MessageComponent} from '../../shared/dialogs/message/message.component'
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
   title = "Sign in";
-  user: User
+  errorMessage:any
   loginDetails={
     Email: " ",
     Password:" "
   }
   submitted = false
-  constructor(private http:HTTPRequestService, public dialog:MatDialog, private Response:IteamsService ) {
+  constructor(private http:HTTPRequestService, public dialog:MatDialog, 
+    private Response:IteamsService, private user: UserDetailsService, private router:Router ) {
     this.createLoginForm();
    }
 
@@ -49,8 +52,18 @@ export class LoginComponent implements OnInit {
   }
   actOnResponse(response)
   {
+    
     this.Response.intitialCloseDialog(true)
-
+    if(!response.loginPassed) 
+    {
+      this.errorMessage = "Invalid email or incorect password"
+    } 
+    else
+    {
+      this.user.setUserData(response);
+      this.router.navigateByUrl('')
+      
+    }
   }
 
 }

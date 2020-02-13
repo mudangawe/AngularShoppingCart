@@ -27,10 +27,10 @@ namespace ASPCOREBACKEND.Controllers
         [HttpPost]
         public PersonDTO Post([FromBody] Person person)
         {
-            if (person.FirstName == null)
+            if (person.FirstName != null)
             {
-                var verify = applicationContext.Persons.Where(user => user.Email == person.Email);
-                if (verify == null)
+                var verify = applicationContext.Persons.Any(user => user.Email == person.Email);
+                if (!verify)
                 {
                     applicationContext.Persons.Add(person);
                     applicationContext.SaveChanges();
@@ -51,19 +51,19 @@ namespace ASPCOREBACKEND.Controllers
             }
             else
             {
-                var user = applicationContext.Persons.Where(user => user.Email == person.Email)
-                    .Select(user => user.Password == person.Password);
+                var user = applicationContext.Persons.SingleOrDefault(user => user.Email == person.Email && user.Password == person.Password);
+                   
                 if (user == null)
                 {
-                    PersonDTO personDTO = new PersonDTO();
-                    personDTO = mapper.Map<PersonDTO>(person);
+                   
+                    var personDTO = mapper.Map<PersonDTO>(person);
                     personDTO.LoginPassed = false;
                     return personDTO;
                 }
                 else {
                     
-                    PersonDTO personDTO = new PersonDTO();
-                    personDTO = mapper.Map<PersonDTO>(person);
+                   
+                    var personDTO = mapper.Map<PersonDTO>(user);
                     personDTO.LoginPassed = true;
                     return personDTO;
                 }

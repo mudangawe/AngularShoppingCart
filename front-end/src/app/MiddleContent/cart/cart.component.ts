@@ -45,5 +45,9 @@ export class CartComponent implements OnInit {
     {
       this.router.navigateByUrl('login')
     }
+    else
+    {
+      this.router.navigateByUrl('Checkout')
+    }
   }
 }
