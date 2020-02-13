@@ -20,4 +20,7 @@ export class HTTPRequestService {
   {
       return  this.http.post("https://localhost:44300/Product",productDetails);
   }
+  LoginAndRegister(userData){
+    return this.http.post("https://localhost:44300/User",userData);
+  }
 }

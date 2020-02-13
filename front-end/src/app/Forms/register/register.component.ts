@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import {HTTPRequestService} from "../../services/httprequest.service"
-import { faThinkPeaks } from '@fortawesome/free-brands-svg-icons';
+import {MatDialog} from '@angular/material/dialog'
+import {IteamsService} from '../../services/iteams.service'
+import {MessageComponent} from '../../shared/dialogs/message/message.component'
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,7 +25,7 @@ export class RegisterComponent implements OnInit {
     Address:""
   }
   submitted = false
-  constructor(private http: HTTPRequestService) {
+  constructor(private http: HTTPRequestService, public dialog:MatDialog, private Response:IteamsService) {
     this.createRegister();
   }
 
@@ -45,11 +48,24 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     
     this.submitted = true;
-    this.http.AddUserRequest(JSON.stringify(this.registerGroup.value))
-    
+    this.http.LoginAndRegister(this.registerGroup.value).subscribe(response => this.actOnResponse(response))
+    this.openDialog();
   }
-  PasswordValidate()
+  
+  openDialog(){
+    this.dialog.open(MessageComponent, {
+      data: {
+        title: 'Please wait ',
+        message:"Register in Progress",
+        height: '400px',
+        width: '600px',
+      }
+    });
+  }
+  actOnResponse(response)
   {
-    return this.registerGroup.get("Password") === this.registerGroup.get("ConfirmPassword");
+    this.Response.intitialCloseDialog(true)
+
   }
+
 }

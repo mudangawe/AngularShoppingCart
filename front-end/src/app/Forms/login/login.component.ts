@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms'
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {User} from '../../Interface/Filter';
+import {HTTPRequestService} from '../../services/httprequest.service';
+import {MatDialog} from '@angular/material/dialog'
+import {IteamsService} from '../../services/iteams.service'
+import {MessageComponent} from '../../shared/dialogs/message/message.component'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,12 +12,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
+  title = "Sign in";
+  user: User
   loginDetails={
     Email: " ",
     Password:" "
   }
   submitted = false
-  constructor() {
+  constructor(private http:HTTPRequestService, public dialog:MatDialog, private Response:IteamsService ) {
     this.createLoginForm();
    }
 
@@ -21,12 +28,29 @@ export class LoginComponent implements OnInit {
   createLoginForm():void{
     this.loginGroup = new FormGroup({
         'Email':new FormControl(this.loginDetails.Email,[Validators.required,Validators.email]),
-        'Password':new FormControl(this.loginDetails.Password, [Validators.required,Validators.minLength(8),Validators.maxLength(12)])
+        'Password':new FormControl(this.loginDetails.Password, [Validators.required])
     }) 
   }
   onSubmit()
   {
-    this.submitted = true;
+    
+    this.http.LoginAndRegister(this.loginGroup.value).subscribe(response => this.actOnResponse(response))
+    this.openDialog();
+  }
+  openDialog(){
+    this.dialog.open(MessageComponent, {
+      data: {
+        title: 'Please wait ',
+        message:"Login in Progress",
+        height: '400px',
+        width: '600px',
+      }
+    });
+  }
+  actOnResponse(response)
+  {
+    this.Response.intitialCloseDialog(true)
+
   }
 
 }

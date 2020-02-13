@@ -33,3 +33,16 @@ export interface  Cartproduct{
    email:string,
    address:string
  }
+ export interface User{
+      FirstName:string,
+      MiddleName:string,
+      LastName:string,
+      IdentityNumber:string,
+      Email:string,
+      PhoneNumber: string,
+      Password:string,
+      AdditionalNumbe: string, 
+      Address:string
+
+  l
+ }

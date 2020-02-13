@@ -61,7 +61,8 @@ export class AddProductComponent implements OnInit {
   openDialog() {
     this.dialog.open(MessageComponent, {
       data: {
-        animal: 'panda',
+        title: 'Please wait',
+        message:'Adding product on progress',
         height: '400px',
         width: '600px',
       }
@@ -69,7 +70,7 @@ export class AddProductComponent implements OnInit {
   }
   ClearForm(response)
   {
-    this.Response.setHttpResponse(response);
+    this.Response.intitialCloseDialog(response);
     this.addProductGroup.reset();
   }
   ConvertImageToBase64(imageInput: any) 

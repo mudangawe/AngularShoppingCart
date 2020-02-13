@@ -4,7 +4,7 @@ import {IteamsService} from '../../../services/iteams.service';
 import { Subscription } from 'rxjs';
 
 export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
+  
 }
 
 @Component({
@@ -14,8 +14,9 @@ export interface DialogData {
 })
 export class MessageComponent implements OnInit {
 
-  constructor(public dialogRef:MatDialogRef<MessageComponent> ,@Inject(MAT_DIALOG_DATA) public data: DialogData , private respondMessage: IteamsService)  { 
-    this.respondMessage.getHttpResponse().subscribe(respond => {this.onNoClick()})
+  constructor(public dialogRef:MatDialogRef<MessageComponent> ,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData , private respondMessage: IteamsService)  { 
+    this.respondMessage.excuteCloseDialog().subscribe(respond => {this.onNoClick()})
   }
 
   ngOnInit() {

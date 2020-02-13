@@ -40,7 +40,7 @@ namespace ASPCOREBACKEND.Controllers
             return personDto;
         }
         [HttpPost("categories")]
-        public async Task<IEnumerable<Product>>  GetProduct([FromBody] CategoriesDTO categoriesDTO)
+        public  IEnumerable<Product>  GetProduct([FromBody] CategoriesDTO categoriesDTO)
         {
                     if (categoriesDTO.BrandName == null && categoriesDTO.PriceLevel == 0)
                         {
