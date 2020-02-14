@@ -7,11 +7,13 @@ import {IteamsService} from '../../services/iteams.service'
 import {MessageComponent} from '../../shared/dialogs/message/message.component';
 import {UserDetailsService} from '../../services/user-details.service';
 import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
   title = "Sign in";
@@ -61,8 +63,14 @@ export class LoginComponent implements OnInit {
     else
     {
       this.user.setUserData(response);
-      this.router.navigateByUrl('')
-      
+      if(this.user.getLoginFirst())
+      {
+        this.router.navigateByUrl('Checkout')
+      }
+      else
+      {
+        this.router.navigateByUrl('')
+      }
     }
   }
 

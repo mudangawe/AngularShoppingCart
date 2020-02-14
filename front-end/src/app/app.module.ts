@@ -35,7 +35,8 @@ import {MatProgressSpinnerModule } from '@angular/material';
 import { CheckoutComponent } from './MiddleContent/checkout/checkout.component';
 import { CreditCardFormComponent } from './Forms/credit-card-form/credit-card-form.component';
 import { PayPalFormComponent } from './Forms/pay-pal-form/pay-pal-form.component';
-import { DebitFormComponent } from './Forms/debit-form/debit-form.component'
+import { DebitFormComponent } from './Forms/debit-form/debit-form.component';
+import { ProfileComponent } from './shared/profile/profile.component'
 
 const appRoutes: Routes =[
   {path:"", component: LandingPageComponent},
@@ -79,7 +80,8 @@ const appRoutes: Routes =[
     CheckoutComponent,
     CreditCardFormComponent,
     PayPalFormComponent,
-    DebitFormComponent
+    DebitFormComponent,
+    ProfileComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes,{enableTracing:true}),

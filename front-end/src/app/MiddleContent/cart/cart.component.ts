@@ -31,10 +31,16 @@ export class CartComponent implements OnInit {
     this.total =  this.cart.reduce((subTotal,item) => subTotal + item.subTotal ,0 )
     console.log(this.total)
   }
-  quantityChanged(qty,id)
+  quantityChanged(qty,index)
   {
-    this.cart[id].subTotal =  this.cart[id].price * qty;
-    this.cart[id].quatity = qty;
+    if(qty <= 0)
+    {
+      this.removeItem(index)
+    } else {
+      this.cart[index].subTotal =  this.cart[index].price * qty;
+      this.cart[index].quatity = qty;
+    }
+
   } 
   updateCart()
   {
@@ -44,10 +50,15 @@ export class CartComponent implements OnInit {
     if(!this.user.anyUserlogIn())
     {
       this.router.navigateByUrl('login')
+      this.user.setLoginFirst();
     }
     else
     {
       this.router.navigateByUrl('Checkout')
     }
+  }
+  removeItem(index){
+    this.cart.splice(index,1);
+    this.totalPrice();
   }
 }

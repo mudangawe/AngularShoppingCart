@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import {faUser,faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
+import {faUser,faCartArrowDown,faBell } from '@fortawesome/free-solid-svg-icons'
 import {IteamsService} from '../../services/iteams.service'
+import {UserDetailsService} from '../../services/user-details.service'
 import {Subscription} from 'rxjs'
 
 
@@ -12,11 +13,13 @@ import {Subscription} from 'rxjs'
 export class HeaderComponent implements  OnChanges {
   faUserCog = faUser;
   cart = faCartArrowDown;
+  notification =faBell;
   CartItems =[]
   subscription: Subscription;;
-
-  constructor( private items: IteamsService) {
+  isLogin =false
+  constructor( private items: IteamsService, private users: UserDetailsService ) {
     this.subscription = this.items.getLengthOfCart().subscribe(length =>this.CartItems =length.cart);
+    this.subscription = this.users.getUserData().subscribe(length =>this.isLogin =length);
    }
 
   ngOnInit() {

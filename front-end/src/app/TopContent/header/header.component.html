@@ -5,9 +5,22 @@
         <div class="companyName"><h3>Furniture</h3></div>
       
     </div>
-    <div>
-        <a routerLink="/login">login </a>|<a routerLink="/register">register</a>  
+    <div >
+        <div  *ngIf="isLogin">
+            <a routerLink="/login">login </a>|<a routerLink="/register">Ramashia</a>  
+        </div>
+    <div *ngIf="!isLogin" class="MiddleContentheader" >
+        
+                <div class="dropdown">
+                    <img src="assets/default.png" class="profileImg" alt="Paris" width="25" height="25">
+                    <div class="dropdown-content">
+                        <app-profile></app-profile>
+                    </div>
+                  
+                </div>  
+               <fa-icon style="margin-left: 10px;" [icon]="notification" size="1x"></fa-icon>
     </div>
+</div>
     <div class="cartItems"> 
             <div class="dropdown">
 
