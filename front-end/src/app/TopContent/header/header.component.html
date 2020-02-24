@@ -6,10 +6,10 @@
       
     </div>
     <div >
-        <div  *ngIf="isLogin">
-            <a routerLink="/login">login </a>|<a routerLink="/register">Ramashia</a>  
+        <div  *ngIf="!isLogin">
+            <a routerLink="/login">Sign in</a>|<a routerLink="/register">Sign up</a>  
         </div>
-    <div *ngIf="!isLogin" class="MiddleContentheader" >
+    <div *ngIf="isLogin" class="MiddleContentheader" >
         
                 <div class="dropdown">
                     <img src="assets/default.png" class="profileImg" alt="Paris" width="25" height="25">

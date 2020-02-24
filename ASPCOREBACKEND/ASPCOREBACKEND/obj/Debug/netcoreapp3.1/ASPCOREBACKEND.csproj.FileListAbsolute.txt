@@ -120,6 +120,10 @@ C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\
 C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\Application.pdb
 C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\Entityframework.pdb
 C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
 C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\obj\Debug\netcoreapp3.1\ASPCOREBACKEND.MvcApplicationPartsAssemblyInfo.cs
 C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\obj\Debug\netcoreapp3.1\ASPCOREBACKEND.MvcApplicationPartsAssemblyInfo.cache
-C:\Source\Angular Project\Shopping cart\ASPCOREBACKEND\ASPCOREBACKEND\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

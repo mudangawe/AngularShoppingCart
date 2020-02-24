@@ -16,5 +16,7 @@ namespace EnityFramework
         public DbSet<Person> Persons { get; set; }
         public DbSet<Individual> Individuals { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<Transaction> Transactions { get;set;}
     }
 }

@@ -57,7 +57,7 @@ namespace ASPCOREBACKEND
             
             app.UseSwagger();
             app.UseSwaggerUI(SetupSwaggerUI);
-            app.UseHttpsRedirection();
+           
             app.UseCors(corsPolicy);
             app.UseRouting();
             app.UseAuthorization();
