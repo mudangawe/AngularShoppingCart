@@ -9,6 +9,7 @@ using AutoMapper;
 using EnityFramework;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASPCOREBACKEND.Controllers
 {
@@ -16,93 +17,30 @@ namespace ASPCOREBACKEND.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ApplicationContext applicationContext;
+        private readonly ApplicationContext context;
         private readonly IMapper mapper;
-        public ProductController(ApplicationContext applicationContext,IMapper mapper)
+        public ProductController(ApplicationContext applicationContext, IMapper mapper)
         {
-            this.applicationContext = applicationContext;
+            this.context = applicationContext;
             this.mapper = mapper;
         }
-        [HttpGet]
-        
-        [HttpGet("{features}")]
-        public IEnumerable<ProductDto> GetProducts(string features)
+        [HttpPost("Create")]
+        public async Task<ActionResult> Create(ProductDto productDtos)
         {
-            var products = applicationContext.Products.Where(product => product.Features == features).ToList();
-            var personDto = new ProductDto[products.Count];
-            StringExtensioncs convertToByte = new StringExtensioncs();
-            int count = 0;
-            foreach (Product pr in products)
-            {
-                personDto[count++] = mapper.Map<ProductDto>(pr);
-            }
-
-            return personDto;
+            await context.Product.AddAsync(mapper.Map<Product>(productDtos));
+            await context.SaveChangesAsync();
+            var stock = new Stock();
+            stock.Quantity = productDtos.Quantity;
+            var product = context.Product.First(product => product.ImageUrl == productDtos.ImageUrl);
+            stock.ProductId = product.Id;
+            return Ok();
         }
-        [HttpPost("categories")]
-        public  IEnumerable<Product>  GetProduct([FromBody] CategoriesDTO categoriesDTO)
+        [HttpGet("GetAll")]
+        public async Task<ActionResult<ProductDto>> GetAll()
         {
-                    if (categoriesDTO.BrandName == null && categoriesDTO.PriceLevel == 0)
-                        {
-                            return  applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName);
-                        }
-                        else if (categoriesDTO.BrandName != null && categoriesDTO.PriceLevel == 0)
-                        {
-                            return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName && 
-                                      x.Brand == categoriesDTO.BrandName);
-                        }
-                        else if (categoriesDTO.BrandName == null && categoriesDTO.PriceLevel != 0)
-                        {
-                                return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName &&
-                                         x.PriceLevel== categoriesDTO.PriceLevel);
-                        }
-                        else 
-                        {
-                            return applicationContext.Products.Where(x => x.Categories == categoriesDTO.CategoriesName &&
-                                        x.PriceLevel == categoriesDTO.PriceLevel && x.Brand == categoriesDTO.BrandName);
-                        }
 
+            return Ok();
+              
         }
-        [HttpPost]
-         public bool  Post([FromBody] Product product)
-         {
-           return  SaveProductToDB(product);
-         }
-        private  bool SaveProductToDB(Product product)
-        {
-            product.ImageUrl =  SaveImageToUrl(product);
-            product.DateModified = DateTime.Now;
-
-            if (Convert.ToInt32(product.Price) < 1000)
-            {
-                product.PriceLevel = 1;
-            } 
-            else if (Convert.ToInt32(product.Price) >= 1000 && Convert.ToInt32(product.Price) < 10000)
-            {
-                product.PriceLevel = 2;
-            } 
-            else if (Convert.ToInt32(product.Price) >= 10000 && Convert.ToInt32(product.Price) < 30000)
-            {
-                product.PriceLevel = 3;
-            }
-            else  if (Convert.ToInt32(product.Price) >= 30000)
-            {
-                product.PriceLevel = 4;
-            }
-            applicationContext.Products.Add(product);
-            applicationContext.SaveChanges();
-            return true;
-
-        }
-        private string SaveImageToUrl(Product product)
-        {
-            string filepath = @"../../front-end\src\assets\Images\" + product.Categories  +
-                                 @"\" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".png";
-            StringExtensioncs convertToByte = new StringExtensioncs();
-            convertToByte.SaveImage(convertToByte.Base64ToImage(product.ImageUrl), filepath);
-            return filepath.Replace(@"../../front-end\src\", "").Replace(@"\", @"/");
-        }
-        
-
     }
 }

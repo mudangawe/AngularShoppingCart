@@ -42,7 +42,7 @@ namespace ASPCOREBACKEND
         {
             services.AddControllers();
             services.AddCors(CorsSetup);
-            services.AddAutoMapper(typeof(DtoProfile));
+            services.AddAutoMapper(typeof(DtosProfile));
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(appConfiguration.Connection));
             services.AddSwaggerGen(SetupSwagger);
         }

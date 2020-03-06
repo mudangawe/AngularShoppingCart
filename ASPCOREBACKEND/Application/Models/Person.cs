@@ -11,6 +11,7 @@ namespace Application.Models
         public string LastName { get; set; }
         public string IdentityNumber { get; set; }
         public string Email { get; set; }
+        public Boolean IsEmailActive { get; set; }
         public string PhoneNumber { get; set; }
         public string AlternativeNumber { get; set; }
         public string Street { get; set; }
