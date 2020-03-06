@@ -11,7 +11,7 @@ using ASPCOREBACKEND.Controllers.Dtos;
 
 namespace ASPCOREBACKEND.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     
     public class UserController : ControllerBase
@@ -25,7 +25,7 @@ namespace ASPCOREBACKEND.Controllers
         }
 
         [HttpPost]
-        public PersonDTO Post([FromBody] Person person)
+        public  PersonDTO Post([FromBody] Person person)
         {
             if (person.FirstName != null)
             {

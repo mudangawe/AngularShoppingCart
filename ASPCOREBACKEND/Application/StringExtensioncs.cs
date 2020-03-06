@@ -14,9 +14,8 @@ namespace Application
             string startWith = DateTime.Today.Year.ToString().Substring(2);
             Random generator = new Random();
             var account = startWith + generator.Next(0, 999999).ToString("D6");
-            customer.AccountNumber = account;
-            customer.CustomerType = "customer";
-            customer.DateModified = DateTime.Now;
+          
+       
             return customer;
         }
         public Byte[] Base64ToImage(string base64Data)

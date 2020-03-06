@@ -19,30 +19,39 @@ namespace Entityframework.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Application.Models.Cart", b =>
+            modelBuilder.Entity("Application.Models.Brand", b =>
                 {
-                    b.Property<int>("CartID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.ToTable("Brand");
+                });
 
-                    b.HasKey("CartID");
+            modelBuilder.Entity("Application.Models.Categories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.ToTable("Cart");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Application.Models.Customer", b =>
                 {
-                    b.Property<int>("CustomerID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -50,47 +59,52 @@ namespace Entityframework.Migrations
                     b.Property<string>("AccountNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CustomerType")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("datetime2");
+                    b.HasKey("Id");
 
-                    b.HasKey("CustomerID");
+                    b.HasIndex("PersonId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
                 });
 
-            modelBuilder.Entity("Application.Models.Individual", b =>
+            modelBuilder.Entity("Application.Models.Order", b =>
                 {
-                    b.Property<int>("Indivial")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CustomerID")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PersonID")
+                    b.Property<int>("OrderDate")
                         .HasColumnType("int");
 
-                    b.HasKey("Indivial");
+                    b.Property<int>("OrderStatus")
+                        .HasColumnType("int");
 
-                    b.ToTable("Individuals");
+                    b.HasKey("Id");
+
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("Application.Models.Person", b =>
                 {
-                    b.Property<int>("PersonID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AdditionalNumber")
+                    b.Property<string>("AlternativeNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -104,40 +118,40 @@ namespace Entityframework.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PersonID");
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Persons");
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Person");
                 });
 
             modelBuilder.Entity("Application.Models.Product", b =>
                 {
-                    b.Property<int>("ProductID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Brand")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Categories")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Destription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Features")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
@@ -149,36 +163,99 @@ namespace Entityframework.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("PriceLevel")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasKey("ProductID");
+                    b.HasIndex("BrandId");
 
-                    b.ToTable("Products");
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("Application.Models.Transaction", b =>
+            modelBuilder.Entity("Application.Models.Staff", b =>
                 {
-                    b.Property<int>("TransactionID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApprovalStatus")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("CustomerID")
+                    b.Property<int>("PersonID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductID")
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonID");
+
+                    b.ToTable("Staff");
+                });
+
+            modelBuilder.Entity("Application.Models.Stock", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Modified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("TransactionID");
+                    b.HasKey("Id");
 
-                    b.ToTable("Transactions");
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("Stock");
+                });
+
+            modelBuilder.Entity("Application.Models.Customer", b =>
+                {
+                    b.HasOne("Application.Models.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Application.Models.Product", b =>
+                {
+                    b.HasOne("Application.Models.Brand", "Brand")
+                        .WithMany()
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Application.Models.Categories", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Application.Models.Staff", b =>
+                {
+                    b.HasOne("Application.Models.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Application.Models.Stock", b =>
+                {
+                    b.HasOne("Application.Models.Product", "Product")
+                        .WithOne("Stock")
+                        .HasForeignKey("Application.Models.Stock", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

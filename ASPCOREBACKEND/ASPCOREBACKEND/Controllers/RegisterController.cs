@@ -57,7 +57,7 @@ namespace ASPCOREBACKEND.Controllers
                 var accountDetails = stringExtensioncs.GenerateAccountNumber();
                 applicationContext.Customers.Add(accountDetails);
                 applicationContext.SaveChanges();
-                var individual = new Individual();
+                var individual = new Staff();
                 individual.CustomerID = applicationContext.Customers.Single(x => x.AccountNumber == accountDetails.AccountNumber).CustomerID;
                 individual.PersonID = applicationContext.Persons.Single(x => x.IdentityNumber == input.IdentityNumber).PersonID;
                 applicationContext.Individuals.Add(individual);
