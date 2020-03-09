@@ -36,7 +36,6 @@ namespace PopulateData
             var product = new Product();
             foreach (var dataRow in GetTableFromExcel())
             {
-                
                  product = MappingSrc.CreateItemFromRow<Product>(dataRow);
             }
             Console.WriteLine();

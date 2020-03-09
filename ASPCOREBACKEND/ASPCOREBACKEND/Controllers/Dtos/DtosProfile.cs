@@ -12,10 +12,10 @@ namespace ASPCOREBACKEND.Controllers.Dtos
         {
             CreateMap<Person, PersonDtos>();
             CreateMap<PersonDtos, Person>();
-            //CreateMap<ProductDto, Product>().ForMember(destination => destination.DateModified, options => options.Ignore())
-            //                                .ForMember(destination => destination.Id, options => options.Ignore());
-                                          
-            //CreateMap<Product, ProductDto>();
+            CreateMap<ProductDto, Product>().ForMember(destination => destination.DateModified, options => options.Ignore())
+                                            .ForMember(destination => destination.Id, options => options.Ignore());
+
+            CreateMap<Product, ProductDto>();
                                              
          }
     }

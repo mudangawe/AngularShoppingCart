@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Entityframework.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,19 +18,6 @@ namespace Entityframework.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Brand", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,6 +45,7 @@ namespace Entityframework.Migrations
                     LastName = table.Column<string>(nullable: true),
                     IdentityNumber = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
+                    IsEmailActive = table.Column<bool>(nullable: false),
                     PhoneNumber = table.Column<string>(nullable: true),
                     AlternativeNumber = table.Column<string>(nullable: true),
                     Street = table.Column<string>(nullable: true),
@@ -80,7 +68,7 @@ namespace Entityframework.Migrations
                     Name = table.Column<string>(nullable: true),
                     BrandId = table.Column<int>(nullable: false),
                     Price = table.Column<double>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false),
+                    Category = table.Column<string>(type: "nvarchar(24)", nullable: false),
                     Destription = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: false)
@@ -92,12 +80,6 @@ namespace Entityframework.Migrations
                         name: "FK_Product_Brand_BrandId",
                         column: x => x.BrandId,
                         principalTable: "Brand",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Product_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -174,11 +156,6 @@ namespace Entityframework.Migrations
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Product_CategoryId",
-                table: "Product",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Staff_PersonID",
                 table: "Staff",
                 column: "PersonID");
@@ -212,9 +189,6 @@ namespace Entityframework.Migrations
 
             migrationBuilder.DropTable(
                 name: "Brand");
-
-            migrationBuilder.DropTable(
-                name: "Categories");
         }
     }
 }

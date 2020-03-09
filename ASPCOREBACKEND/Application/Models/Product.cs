@@ -13,8 +13,7 @@ namespace Application.Models
         public int BrandId { get; set; }
         public Brand Brand { get; set; }
         public double Price { get; set; }
-        [ForeignKey("Category")]
-        public int CategoryId { get; set; }
+        [Column(TypeName = "nvarchar(24)")]
         public Categories Category { get; set; }
         public Stock Stock { get; set; }
         public string Destription { get; set; }

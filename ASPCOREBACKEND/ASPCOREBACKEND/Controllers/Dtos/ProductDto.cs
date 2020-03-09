@@ -9,7 +9,7 @@ namespace ASPCOREBACKEND.Controllers.Dtos
     {
         public int ProductID { get; set; }
         public string Name { get; set; }
-        public string Brand { get; set; }
+        public string BrandName { get; set; }
         public Double Price { get; set; }
         public string Categories { get; set; }
         public string Destription { get; set; }

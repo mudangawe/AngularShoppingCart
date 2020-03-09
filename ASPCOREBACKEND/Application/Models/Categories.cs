@@ -4,8 +4,12 @@ using System.Text;
 
 namespace Application.Models
 {
-    public class Categories: Entity
+    public enum Categories
     {
-        public string Name { get; set; }
+       BEDROOM,
+       LIVINGROOM,
+       DININGROOM,
+       KITCHEN,
+       GARDEN
     }
 }
