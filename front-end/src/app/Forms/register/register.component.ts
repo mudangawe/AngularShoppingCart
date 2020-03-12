@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     
     this.submitted = true;
-    this.http.LoginAndRegister(this.registerGroup.value).subscribe(response => this.actOnResponse(response))
+    this.http.SignUp(this.registerGroup.value).subscribe(response => this.actOnResponse(response))
     this.openDialog();
   }
   

@@ -1,6 +1,7 @@
 <div class="shelves"> 
     <div class="shelf-cards" *ngFor="let display of displayProduct" >
             <img src={{display.imageUrl}} style="width: 300px; height: 200px;" required >
-            <button style="width:  300px;">{{display.categories}}  <span id="arrow">&#8250;</span></button>
+            <button style="width:  300px;">{{display.category}}<span id="arrow">&#8250;</span></button> 
+           
         </div>
 </div>

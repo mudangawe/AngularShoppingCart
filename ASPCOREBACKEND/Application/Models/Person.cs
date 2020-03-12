@@ -17,7 +17,8 @@ namespace Application.Models
         public string Street { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public string Password { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
         public DateTime Created { get; set; }
     }
 }

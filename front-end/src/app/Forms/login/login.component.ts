@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   onSubmit()
   {
     
-    this.http.LoginAndRegister(this.loginGroup.value).subscribe(response => this.actOnResponse(response))
+    //this.http.LoginAndRegister(this.loginGroup.value).subscribe(response => this.actOnResponse(response))
     this.openDialog();
   }
   openDialog(){

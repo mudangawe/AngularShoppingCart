@@ -7,6 +7,7 @@ namespace Application.Models
 {
    public class Staff: Entity
     {
+
         public Boolean IsActive { get; set; }
         [ForeignKey("Person")]
         public int PersonID { get; set; }

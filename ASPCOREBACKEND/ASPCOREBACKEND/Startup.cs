@@ -20,6 +20,10 @@ using EnityFramework;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using ASPCOREBACKEND.Controllers.Dtos;
+using ASPCOREBACKEND.Data;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ASPCOREBACKEND
 {
@@ -29,6 +33,7 @@ namespace ASPCOREBACKEND
         public IConfiguration Configuration { get; }
         private AppConfiguration appConfiguration;
         private readonly string corsPolicy = "CorsPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -45,6 +50,17 @@ namespace ASPCOREBACKEND
             services.AddAutoMapper(typeof(DtosProfile));
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(appConfiguration.Connection));
             services.AddSwaggerGen(SetupSwagger);
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +76,7 @@ namespace ASPCOREBACKEND
            
             app.UseCors(corsPolicy);
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
