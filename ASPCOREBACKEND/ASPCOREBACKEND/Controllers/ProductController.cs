@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using Application;
 using Application.Models;
 using ASPCOREBACKEND.Controllers.Dtos;
+using ASPCOREBACKEND.Data;
 using AutoMapper;
+using AutoMapper.Configuration;
 using EnityFramework;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,10 +23,13 @@ namespace ASPCOREBACKEND.Controllers
     {
         private readonly ApplicationContext context;
         private readonly IMapper mapper;
-        public ProductController(ApplicationContext applicationContext, IMapper mapper)
+        
+        public ProductController(ApplicationContext applicationContext, IMapper mapper
+                                 )
         {
             this.context = applicationContext;
             this.mapper = mapper;
+          
         }
         [HttpPost("Create")]
         public async Task<ActionResult> Create(ProductDto productDtos)

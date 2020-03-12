@@ -38,7 +38,7 @@ namespace ASPCOREBACKEND.Controllers
         }
         
         [HttpPost("Create")]
-        public async Task<ActionResult> Customer([FromBody] PersonDtos input)
+        public async Task<ActionResult> Customer([FromBody] RegisterDtos input)
         {
 
             if (await authRepository.UserExist(input.Email.ToLower()))
@@ -56,7 +56,7 @@ namespace ASPCOREBACKEND.Controllers
 
         }
         [HttpPost("SignIn")]
-        public async Task<ActionResult> SignIn(PersonDtos input)
+        public async Task<ActionResult> SignIn(RegisterDtos input)
         {
             if (!await authRepository.UserExist(input.Email.ToLower()))
             {
@@ -83,10 +83,24 @@ namespace ASPCOREBACKEND.Controllers
             return Ok(new { tokenString });
         }
         [Authorize]
-        [HttpGet("get/{id}")]
-        public string Get()
+        [HttpPost("Update")]
+        public async Task<ActionResult> Update(ProfileDtos input)
         {
-            return User.Identity.Name;
+            var person = await context.Person.FirstOrDefaultAsync(person => person.Email == User.Identity.Name);
+            if (person == null)
+            {
+                throw new Exception("User does not exist");
+            }
+            context.Entry(person).CurrentValues.SetValues(input);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+        [Authorize]
+        [HttpGet("get")]
+        public async Task<ActionResult<ProfileDtos>> Get()
+        {
+            var person = await context.Person.FirstOrDefaultAsync(person => person.Email == User.Identity.Name);
+            return mapper.Map<ProfileDtos>(person);
         }
     }
 }

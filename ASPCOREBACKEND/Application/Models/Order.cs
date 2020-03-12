@@ -10,5 +10,6 @@ namespace Application.Models
         public int CustomerId { get; set; }
         public int OrderStatus { get; set; }
         public int OrderDate { get; set; }
+        public string Reference { get; set; }
     }
 }

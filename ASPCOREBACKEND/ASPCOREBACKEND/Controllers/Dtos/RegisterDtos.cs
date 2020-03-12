@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ASPCOREBACKEND.Controllers.Dtos
 {
-    public class PersonDtos
+    public class RegisterDtos
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

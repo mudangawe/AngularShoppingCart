@@ -19,6 +19,7 @@ namespace EnityFramework
         public DbSet<Order> Order { get; set; }
         public DbSet<Stock> Stock { get; set; }
         public DbSet<Brand> Brand { get; set; }
+        public DbSet<OrderIteams> OrderIteams { get; set; }
         
     }
 }
