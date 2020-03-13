@@ -22,6 +22,7 @@ export class UserDetailsService {
     this.profile = user;
     console.log( this.profile )
     this.login =true;
+    this.setUpdateuser();
   }
 
   anyUserlogIn(){
@@ -43,6 +44,7 @@ export class UserDetailsService {
   logout(){
     this.profile = undefined;
     this.login = false;
+    this.setUpdateuser()
   }
   setUpdateuser()
   {

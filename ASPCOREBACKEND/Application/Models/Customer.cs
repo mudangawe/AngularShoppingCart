@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Application.Models
 {
-    public class Customer
+    public class Customer : Entity
     {
-        [Key]
-        public int CustomerID  {get;set;}
         public string AccountNumber { get; set; }
-        public string CustomerType { get; set; }
-        public DateTime DateModified { get; set; }
+        [ForeignKey("Person")]
+        public int PersonId { get; set; }
+        public Person Person { get; set; }
     }
 }

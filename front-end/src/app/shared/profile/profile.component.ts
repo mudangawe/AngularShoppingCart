@@ -22,6 +22,6 @@ export class ProfileComponent implements OnInit {
 
   logout(){
     this.user.logout();
-    console.log("Out")
+    
   }
 }

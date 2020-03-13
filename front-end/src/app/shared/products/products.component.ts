@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
     else
     {
      
-       this.http.LoadProduct(this.categories).subscribe(response => {this.setProduct(response)});
+      this.http.GetProductCarousel().subscribe(response => {this.setProduct(response)});
     }
   
   }

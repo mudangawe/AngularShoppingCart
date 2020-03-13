@@ -8,16 +8,13 @@ namespace Application
 {
     public class StringExtensioncs
     {
-        public Customer GenerateAccountNumber()
+        public string GenerateAccountNumber()
         {
             var customer = new Customer();
             string startWith = DateTime.Today.Year.ToString().Substring(2);
             Random generator = new Random();
             var account = startWith + generator.Next(0, 999999).ToString("D6");
-            customer.AccountNumber = account;
-            customer.CustomerType = "customer";
-            customer.DateModified = DateTime.Now;
-            return customer;
+            return account;
         }
         public Byte[] Base64ToImage(string base64Data)
         {

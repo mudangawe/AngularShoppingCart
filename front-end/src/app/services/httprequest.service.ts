@@ -6,21 +6,25 @@ import {HttpClient} from '@angular/common/http'
 export class HTTPRequestService {
 
   constructor(private http: HttpClient) { }
-  LoadProduct(features){
-    return this.http.get("https://localhost:44300/Product/" + features);
+  GetProductCarousel(){
+    return this.http.get("https://localhost:44300/Product/carousel");
+  }
+  GetProductDisplay(){
+    return this.http.get("https://localhost:44300/Product/Display");
+  }
+  GetProduct(){
+    return this.http.get("https://localhost:44300/Product/carousel");
   }
   LoadProductOnCategories(filter) {
       return this.http.post("https://localhost:44300/Product/categories",filter);
   }
-  AddUserRequest(userDetails)
+  SignUp(userDetails)
   {
-    this.http.post("https://localhost:44300/Register",userDetails);
+    return this.http.post("https://localhost:44300/api/Customer/Create",userDetails);
   }
   AddProduct(productDetails)
   {
       return  this.http.post("https://localhost:44300/Product",productDetails);
   }
-  LoginAndRegister(userData){
-    return this.http.post("https://localhost:44300/User",userData);
-  }
 }
+

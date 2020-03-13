@@ -15,11 +15,13 @@ export class HeaderComponent implements  OnChanges {
   cart = faCartArrowDown;
   notification =faBell;
   CartItems =[]
-  subscription: Subscription;;
+  subscription: Subscription;
+  subscriptions: Subscription;
   isLogin =false
   constructor( private items: IteamsService, private users: UserDetailsService ) {
     this.subscription = this.items.getLengthOfCart().subscribe(length =>this.CartItems =length.cart);
-    this.subscription = this.users.getUserData().subscribe(length =>this.isLogin =length);
+    this.subscription = this.users.updateuser().subscribe(data =>this.isLogin =data.isUserOn);
+    
    }
 
   ngOnInit() {

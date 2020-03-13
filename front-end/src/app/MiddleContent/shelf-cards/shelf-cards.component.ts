@@ -16,11 +16,12 @@ export class ShelfCardsComponent implements OnInit {
   }
   getShelves():void
   {
-    this.serivce.LoadProduct("display").subscribe(response => {this.setDisplayData(response) });
+    this.serivce.GetProductDisplay().subscribe(response => {this.setDisplayData(response) });
   }
   setDisplayData(products)
   { 
     this.displayProduct = products
+    console.log(this.displayProduct)
   }
 
 }

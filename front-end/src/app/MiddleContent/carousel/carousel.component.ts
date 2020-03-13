@@ -21,7 +21,7 @@ export class CarouselComponent implements OnInit {
 
   geIteams(): void
   {
-     this.http.LoadProduct("carousel").subscribe(response => {this.setItemsData(response)});
+    this.http.GetProductCarousel().subscribe(response => {this.setItemsData(response)});
   }
   setItemsData(products)
   {

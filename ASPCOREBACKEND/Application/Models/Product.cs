@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Application.Models
 {
-    public class Product
+    public class Product: Entity
     {
-        [Key]
-        public int ProductID { get; set; }
         public string Name { get; set; }
-        public string Brand { get; set; }
+        [ForeignKey("Brand")]
+        public int BrandId { get; set; }
+        public Brand Brand { get; set; }
         public double Price { get; set; }
-        public int PriceLevel { get; set; }
-        public string Categories { get; set; }
+        [Column(TypeName = "nvarchar(24)")]
+        public Categories Category { get; set; }
+        public Stock Stock { get; set; }
         public string Destription { get; set; }
         public string ImageUrl { get; set; }
-        public string Features { get; set; }
         public DateTime DateModified { get; set; }
     }
 }

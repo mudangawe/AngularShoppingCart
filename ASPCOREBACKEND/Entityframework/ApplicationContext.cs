@@ -12,9 +12,14 @@ namespace EnityFramework
         {
 
         }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Person> Persons { get; set; }
-        public DbSet<Individual> Individuals { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Person> Person { get; set; }
+        public DbSet<Staff> Staff { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Stock> Stock { get; set; }
+        public DbSet<Brand> Brand { get; set; }
+        public DbSet<OrderIteams> OrderIteams { get; set; }
+        
     }
 }

@@ -5,18 +5,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Application.Models
 {
-   public class Person
+   public class Person : Entity
     {
-        [Key]
-        public int PersonID { get; set; }
         public string FirstName { get; set; }
-        public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string IdentityNumber { get; set; }
         public string Email { get; set; }
+        public Boolean IsEmailActive { get; set; }
         public string PhoneNumber { get; set; }
-        public string Password { get; set; }
-        public string AdditionalNumber { get; set; }
-        public string Address { get; set; }
+        public string AlternativeNumber { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
+        public DateTime Created { get; set; }
     }
 }

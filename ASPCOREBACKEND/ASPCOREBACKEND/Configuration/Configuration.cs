@@ -12,7 +12,7 @@ namespace ASPCOREBACKEND.Configuration
         public string Description { get; }
         public string TermsOfService { get; }
         public string Connection { get; }
-
+        public string Token { get; set; }
         public AppConfiguration(IConfiguration configuration)
         {
             ServerAddress = configuration["App:ServerRootAddress"];
@@ -23,6 +23,7 @@ namespace ASPCOREBACKEND.Configuration
             Description = configuration["App:Description"];
             TermsOfService = configuration["App:Meta:TermsOfService"];
             Connection = configuration.GetConnectionString("Default");
+            Token = configuration["App:AppSettings:Token"];
         }
     }
 }
