@@ -56,16 +56,16 @@ namespace ASPCOREBACKEND.Controllers
 
         }
         [HttpPost("SignIn")]
-        public async Task<ActionResult> SignIn(RegisterDtos input)
+        public async Task<ActionResult> SignIn(LoginDtos input)
         {
             if (!await authRepository.UserExist(input.Email.ToLower()))
             {
-                BadRequest("Email does't exist");
+                return BadRequest("Email does't exist");
             }
             var person = await authRepository.SignIn(mapper.Map<Person>(input), input.Password);
             if (person == null)
             {
-                return Unauthorized();
+                return BadRequest("Incorrect password");
             }
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(configuration.GetSection("AppSettings:Token").Value);

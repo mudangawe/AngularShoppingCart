@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
   }
   actOnResponse(response)
   {
-    this.Response.intitialCloseDialog(true)
+    this.Response.closeDialog(true)
 
   }
 

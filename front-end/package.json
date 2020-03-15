@@ -30,6 +30,7 @@
     "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
     "js-xlsx": "^0.8.22",
+    "ngx-cookie-service": "^3.0.2",
     "ngx-webstorage-service": "^4.1.0",
     "rxjs": "^6.4.0",
     "tslib": "^1.10.0",

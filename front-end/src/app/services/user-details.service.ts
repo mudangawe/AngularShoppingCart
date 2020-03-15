@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Profile} from '../Interface/Filter'
 import { Observable, Subject, ObservedValueOf } from 'rxjs'
+import {AuthoCookiesHandlerService} from '../services/autho-cookies-handler.service'
 @Injectable({
   providedIn: 'root'
 })
@@ -10,17 +11,16 @@ export class UserDetailsService {
   login=false;
   loginFirst=false;
   private MonitoringUser = new Subject<any>();
-  constructor() {
+  constructor(private authCookie: AuthoCookiesHandlerService) {
     
    }
 
-   getUserData(){
+   getUserDetails(){
     return this.profile;
     }
 
-  setUserData(user){
+  setUserDetails(user){
     this.profile = user;
-    console.log( this.profile )
     this.login =true;
     this.setUpdateuser();
   }
@@ -43,12 +43,12 @@ export class UserDetailsService {
   }
   logout(){
     this.profile = undefined;
-    this.login = false;
+    this.authCookie.deleteAuth();
     this.setUpdateuser()
   }
   setUpdateuser()
   {
-    this.MonitoringUser.next({isUserOn: this.login})
+    this.MonitoringUser.next({isUserOn: this.login});
   }
   updateuser():Observable<any>{
     return this.MonitoringUser.asObservable();

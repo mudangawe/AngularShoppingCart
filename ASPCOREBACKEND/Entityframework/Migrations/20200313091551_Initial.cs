@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Entityframework.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,8 +27,9 @@ namespace Entityframework.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<int>(nullable: false),
-                    OrderStatus = table.Column<int>(nullable: false),
-                    OrderDate = table.Column<int>(nullable: false)
+                    OrderStatus = table.Column<string>(nullable: true),
+                    OrderDate = table.Column<DateTime>(nullable: false),
+                    Reference = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -51,7 +52,8 @@ namespace Entityframework.Migrations
                     Street = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
                     State = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
+                    PasswordHash = table.Column<byte[]>(nullable: true),
+                    PasswordSalt = table.Column<byte[]>(nullable: true),
                     Created = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -125,6 +127,34 @@ namespace Entityframework.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OrderIteams",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(nullable: false),
+                    OrderId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    Discount = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderIteams", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OrderIteams_Order_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Order",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderIteams_Product_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Product",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Stock",
                 columns: table => new
                 {
@@ -151,6 +181,16 @@ namespace Entityframework.Migrations
                 column: "PersonId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OrderIteams_OrderId",
+                table: "OrderIteams",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderIteams_ProductId",
+                table: "OrderIteams",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Product_BrandId",
                 table: "Product",
                 column: "BrandId");
@@ -173,13 +213,16 @@ namespace Entityframework.Migrations
                 name: "Customer");
 
             migrationBuilder.DropTable(
-                name: "Order");
+                name: "OrderIteams");
 
             migrationBuilder.DropTable(
                 name: "Staff");
 
             migrationBuilder.DropTable(
                 name: "Stock");
+
+            migrationBuilder.DropTable(
+                name: "Order");
 
             migrationBuilder.DropTable(
                 name: "Person");

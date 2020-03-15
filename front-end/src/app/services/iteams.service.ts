@@ -90,7 +90,7 @@ export class IteamsService {
     this.page = page;
     this.subjectPage.next({ page: this.page })
   }
-  intitialCloseDialog(message:any){
+  closeDialog(message:any){
     this.httpResponse.next({response: message})
   }
   excuteCloseDialog():Observable<any>{

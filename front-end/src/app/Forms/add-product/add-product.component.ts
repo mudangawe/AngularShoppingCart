@@ -70,7 +70,7 @@ export class AddProductComponent implements OnInit {
   }
   ClearForm(response)
   {
-    this.Response.intitialCloseDialog(response);
+    this.Response.closeDialog(response);
     this.addProductGroup.reset();
   }
   ConvertImageToBase64(imageInput: any) 
