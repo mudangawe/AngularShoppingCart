@@ -37,5 +37,10 @@ export class HTTPRequestService {
   {
       return  this.http.post("https://localhost:44300/Product",productDetails);
   }
+  Checkout(Products)
+  {
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authoCookie.getAuth());
+     return this.http.post("https://localhost:44300/api/Orders/Create",Products,{headers: headers})
+  }
 }
 

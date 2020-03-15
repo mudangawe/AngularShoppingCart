@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
               private response:IteamsService, private user: UserDetailsService, 
               private router:Router, private authCookie: AuthoCookiesHandlerService) {
     this.createLoginForm();
+    if(authCookie.getAuth() != null)
+    {
+      this.router.navigateByUrl("");
+    }
    }
 
   ngOnInit() {
@@ -63,13 +67,16 @@ export class LoginComponent implements OnInit {
   }
   notifyUser(response)
   {
-    this.errorMessage =(response);
+    this.errorMessage = response;
     this.response.closeDialog(response);
   }
   assignUserDetails(response)
   {
+    this.errorMessage = " ";
     this.user.setUserDetails(response);
     this.response.closeDialog(response);
+    this.router.navigateByUrl("");
   }
+  
 
 }

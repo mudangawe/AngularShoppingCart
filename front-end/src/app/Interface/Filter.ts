@@ -20,12 +20,13 @@ export interface Product{
 }
 
 export interface  Cartproduct{
-  id :number,
-  name: string,
-  quatity : number,
-  price: number,
+  ProductID: number,
+  Name: string,
+  Quantity: number,
+  Price: number,
   imageUrl: string,
-  subTotal:  number
+  SubTotal: number,
+  Discount: number
  }
  export interface Profile{
    name:string,

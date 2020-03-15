@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import {Profile} from '../Interface/Filter'
+import { Injectable, Inject } from '@angular/core';
 import { Observable, Subject, ObservedValueOf } from 'rxjs'
 import {AuthoCookiesHandlerService} from '../services/autho-cookies-handler.service'
+import {LOCAL_STORAGE,StorageService} from 'ngx-webstorage-service'
 @Injectable({
   providedIn: 'root'
 })
@@ -9,38 +9,29 @@ import {AuthoCookiesHandlerService} from '../services/autho-cookies-handler.serv
 export class UserDetailsService {
   profile:any;
   login=false;
-  loginFirst=false;
   private MonitoringUser = new Subject<any>();
-  constructor(private authCookie: AuthoCookiesHandlerService) {
+  constructor(private authCookie: AuthoCookiesHandlerService,
+              @Inject(LOCAL_STORAGE) private storage: StorageService) {
     
    }
 
    getUserDetails(){
-    return this.profile;
+    let userDetails= {'firstName': this.storage.get('firstname'),
+                      'lastName':  this.storage.get('lastname')}
+    return userDetails;
     }
 
   setUserDetails(user){
-    this.profile = user;
-    this.login =true;
+    console.log(user)
+    this.storage.set('firstname', user.firstName);
+    this.storage.set('lastname', user.lastName);
     this.setUpdateuser();
   }
 
   anyUserlogIn(){
-    return this.login;
+    return this.authCookie.getAuth() == null ? false:true;
   }
-  getLoginFirst()
-  {
-    return this.loginFirst
-  }
-  setLoginFirst()
-  {
-    if(this.loginFirst)
-    {
-      this.loginFirst = false;
-    }else{
-      this.loginFirst =true;
-    }
-  }
+  
   logout(){
     this.profile = undefined;
     this.authCookie.deleteAuth();
@@ -48,7 +39,9 @@ export class UserDetailsService {
   }
   setUpdateuser()
   {
-    this.MonitoringUser.next({isUserOn: this.login});
+    let anyUser = this.authCookie.getAuth() == null ? false: true;
+    console.log(anyUser);
+    this.MonitoringUser.next({isUserOn: anyUser});
   }
   updateuser():Observable<any>{
     return this.MonitoringUser.asObservable();
