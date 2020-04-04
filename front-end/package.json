@@ -32,7 +32,11 @@
     "jquery": "^3.4.1",
     "js-xlsx": "^0.8.22",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "ngx-cookie-service": "^3.0.2",
+=======
+    "ngx-paypal": "^6.0.1",
+>>>>>>> master
 =======
     "ngx-paypal": "^6.0.1",
 >>>>>>> master

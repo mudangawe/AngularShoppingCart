@@ -18,6 +18,7 @@ export class HTTPRequestService {
   }
   LoadProductOnCategories(filter) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       return this.http.post("https://localhost:44300/Product/categories", filter);
   }
   SignIn(user)
@@ -32,6 +33,9 @@ export class HTTPRequestService {
 =======
       return this.http.post("http://localhost:44300/Product/categories",filter);
 >>>>>>> master
+=======
+      return this.http.post("http://localhost:44300/Product/categories",filter);
+>>>>>>> master
   }
   SignUp(userDetails)
   {
@@ -40,11 +44,14 @@ export class HTTPRequestService {
   AddProduct(productDetails)
   {
       return  this.http.post("http://localhost:44300/Product",productDetails);
+<<<<<<< HEAD
   }
   Checkout(Products)
   {
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authoCookie.getAuth());
      return this.http.post("https://localhost:44300/api/Orders/Create",Products,{headers: headers})
+=======
+>>>>>>> master
   }
 }
 
