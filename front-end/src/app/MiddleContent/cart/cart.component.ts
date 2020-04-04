@@ -31,25 +31,18 @@ export class CartComponent implements OnInit {
     this.totalPrice();
   }
   totalPrice () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    this.total =  this.cart.reduce((subTotal,item) => subTotal + item.SubTotal ,0 )
-    console.log(this.total)
-=======
+
     this.total =  this.cart.reduce((subTotal,item) => subTotal + item.subTotal ,0 )
   
->>>>>>> master
-=======
-    this.total =  this.cart.reduce((subTotal,item) => subTotal + item.subTotal ,0 )
-  
->>>>>>> master
   }
   quantityChanged(qty,index)
   {
     if(qty <= 0)
     {
       this.removeItem(index)
-    } else {
+    }
+     else 
+    {
       this.cart[index].SubTotal =  this.cart[index].Price * qty;
       this.cart[index].Quantity = qty;
     }
@@ -60,22 +53,12 @@ export class CartComponent implements OnInit {
       this.items.updateCart(this.cart);
   }
   verifyUser(){
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     if(!this.authoCookie.getAuth() == null){
       this.router.navigateByUrl('login');
-=======
-=======
->>>>>>> master
-    if(this.user.anyUserlogIn())
-    {
-      this.router.navigateByUrl('login')
-      this.user.setLoginFirst();
->>>>>>> master
     }
     else
     {
-     // this.router.navigateByUrl('Checkout');
       this.http.Checkout(this.cart).subscribe(x => console.log(x));
     }
   }

@@ -37,7 +37,6 @@ import { CreditCardFormComponent } from './Forms/credit-card-form/credit-card-fo
 import { PayPalFormComponent } from './Forms/pay-pal-form/pay-pal-form.component';
 import { DebitFormComponent } from './Forms/debit-form/debit-form.component';
 import { ProfileComponent } from './shared/profile/profile.component'
-import {CookieService} from 'ngx-cookie-service'
 import {StorageServiceModule} from 'ngx-webstorage-service'
 const appRoutes: Routes =[
   {path:"", component: LandingPageComponent},
@@ -98,7 +97,7 @@ const appRoutes: Routes =[
     MatProgressSpinnerModule,
     StorageServiceModule
   ],
-  providers: [CookieService],
+  providers: [],
   bootstrap: [AppComponent,MessageComponent]
 })
 export class AppModule { }
