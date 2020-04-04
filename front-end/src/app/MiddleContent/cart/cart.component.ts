@@ -29,7 +29,7 @@ export class CartComponent implements OnInit {
   }
   totalPrice () {
     this.total =  this.cart.reduce((subTotal,item) => subTotal + item.subTotal ,0 )
-    console.log(this.total)
+  
   }
   quantityChanged(qty,index)
   {
@@ -47,7 +47,7 @@ export class CartComponent implements OnInit {
       this.items.updateCart(this.cart);
   }
   verifyUser(){
-    if(!this.user.anyUserlogIn())
+    if(this.user.anyUserlogIn())
     {
       this.router.navigateByUrl('login')
       this.user.setLoginFirst();

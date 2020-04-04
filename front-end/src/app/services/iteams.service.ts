@@ -23,8 +23,6 @@ export class IteamsService {
   cartProduct :Cartproduct
   constructor() { }
   
-  
-  
   getProduct() {
     
     let from = (this.page * this.perPage) - this.perPage;
