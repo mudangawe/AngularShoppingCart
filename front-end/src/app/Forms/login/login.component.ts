@@ -7,7 +7,8 @@ import {IteamsService} from '../../services/iteams.service'
 import {MessageComponent} from '../../shared/dialogs/message/message.component';
 import {UserDetailsService} from '../../services/user-details.service';
 import {Router} from '@angular/router';
-
+import { HttpErrorResponse } from '@angular/common/http';
+import {AuthoCookiesHandlerService} from '../../services/autho-cookies-handler.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,8 +25,13 @@ export class LoginComponent implements OnInit {
   }
   submitted = false
   constructor(private http:HTTPRequestService, public dialog:MatDialog, 
-    private Response:IteamsService, private user: UserDetailsService, private router:Router ) {
+              private response:IteamsService, private user: UserDetailsService, 
+              private router:Router, private authCookie: AuthoCookiesHandlerService) {
     this.createLoginForm();
+    if(authCookie.getAuth() != null)
+    {
+      this.router.navigateByUrl("");
+    }
    }
 
   ngOnInit() {
@@ -38,8 +44,8 @@ export class LoginComponent implements OnInit {
   }
   onSubmit()
   {
-    
-    //this.http.LoginAndRegister(this.loginGroup.value).subscribe(response => this.actOnResponse(response))
+    this.http.SignIn(this.loginGroup.value).subscribe(response => { this.testToken(response.body)}, 
+                                                      (error:HttpErrorResponse) => { this.notifyUser(error.error)})                                         
     this.openDialog();
   }
   openDialog(){
@@ -52,26 +58,25 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  actOnResponse(response)
+  testToken(response)
   {
-    
-    this.Response.intitialCloseDialog(true)
-    if(!response.loginPassed) 
-    {
-      this.errorMessage = "Invalid email or incorect password"
-    } 
-    else
-    {
-      this.user.setUserData(response);
-      if(this.user.getLoginFirst())
-      {
-        this.router.navigateByUrl('Checkout')
-      }
-      else
-      {
-        this.router.navigateByUrl('')
-      }
-    }
+    this.authCookie.setAuth(response.tokenString),
+    this.http.VerifySignIn().subscribe(response => this.assignUserDetails(response),
+                                                           (error:HttpErrorResponse)=>this.notifyUser(error.error)
+                                                           ) ;                                                   
   }
+  notifyUser(response)
+  {
+    this.errorMessage = response;
+    this.response.closeDialog(response);
+  }
+  assignUserDetails(response)
+  {
+    this.errorMessage = " ";
+    this.user.setUserDetails(response);
+    this.response.closeDialog(response);
+    this.router.navigateByUrl("");
+  }
+  
 
 }

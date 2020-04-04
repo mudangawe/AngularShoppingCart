@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import {Profile} from '../Interface/Filter'
+import { Injectable ,Inject} from '@angular/core';
 import { Observable, Subject, ObservedValueOf } from 'rxjs'
+import {AuthoCookiesHandlerService} from '../services/autho-cookies-handler.service'
+import {LOCAL_STORAGE,StorageService} from 'ngx-webstorage-service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,45 +11,37 @@ export class UserDetailsService {
   login=false;
   loginFirst=false;
   private MonitoringUser = new Subject<any>();
-  constructor() {
-    
-   }
+  constructor(private authCookie: AuthoCookiesHandlerService,
+    @Inject(LOCAL_STORAGE) private storage: StorageService) {
 
-   getUserData(){
-    return this.profile;
+}
+
+   getUserDetails(){
+    let userDetails= {'firstName': this.storage.get('firstname'),
+                      'lastName':  this.storage.get('lastname')}
+    return userDetails;
     }
 
-  setUserData(user){
-    this.profile = user;
-    console.log( this.profile )
-    this.login =true;
+
+    setUserDetails(user){
+      console.log(user)
+      this.storage.set('firstname', user.firstName);
+      this.storage.set('lastname', user.lastName);
     this.setUpdateuser();
   }
 
   anyUserlogIn(){
-    return this.login;
-  }
-  getLoginFirst()
-  {
-    return this.loginFirst
-  }
-  setLoginFirst()
-  {
-    if(this.loginFirst)
-    {
-      this.loginFirst = false;
-    }else{
-      this.loginFirst =true;
-    }
+    return this.authCookie.getAuth() == null ? false:true;
   }
   logout(){
     this.profile = undefined;
-    this.login = false;
+    this.authCookie.deleteAuth();
     this.setUpdateuser()
   }
   setUpdateuser()
   {
-    this.MonitoringUser.next({isUserOn: this.login})
+    let anyUser = this.authCookie.getAuth() == null ? false: true;
+    this.MonitoringUser.next({isUserOn: anyUser});
   }
   updateuser():Observable<any>{
     return this.MonitoringUser.asObservable();

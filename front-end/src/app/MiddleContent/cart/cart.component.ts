@@ -4,7 +4,8 @@ import {UserDetailsService} from '../../services/user-details.service';
 import {Cartproduct} from '../../Interface/Filter'
 import {faTrash ,faEdit} from '@fortawesome/free-solid-svg-icons'
 import {Router} from '@angular/router'
-
+import {HTTPRequestService} from '../../services/httprequest.service'
+import {AuthoCookiesHandlerService} from '../../services/autho-cookies-handler.service'
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,7 +16,9 @@ export class CartComponent implements OnInit {
   editIcon =faEdit;
   cart :Cartproduct[];
   total: any;
-  constructor(private items:IteamsService, private user: UserDetailsService, private router:Router) {
+  constructor(private items:IteamsService, private user: UserDetailsService, 
+              private router:Router, private authoCookie: AuthoCookiesHandlerService,
+              private http: HTTPRequestService) {
     this.getItemsInCart();
    }
 
@@ -28,17 +31,18 @@ export class CartComponent implements OnInit {
     this.totalPrice();
   }
   totalPrice () {
-    this.total =  this.cart.reduce((subTotal,item) => subTotal + item.subTotal ,0 )
-  
+    this.total =  this.cart.reduce((subTotal,item) => subTotal + item.SubTotal ,0 )
   }
   quantityChanged(qty,index)
   {
     if(qty <= 0)
     {
       this.removeItem(index)
-    } else {
-      this.cart[index].subTotal =  this.cart[index].price * qty;
-      this.cart[index].quatity = qty;
+    }
+     else 
+    {
+      this.cart[index].SubTotal =  this.cart[index].Price * qty;
+      this.cart[index].Quantity = qty;
     }
 
   } 
@@ -47,14 +51,13 @@ export class CartComponent implements OnInit {
       this.items.updateCart(this.cart);
   }
   verifyUser(){
-    if(this.user.anyUserlogIn())
-    {
-      this.router.navigateByUrl('login')
-      this.user.setLoginFirst();
+
+    if(!this.authoCookie.getAuth() == null){
+      this.router.navigateByUrl('login');
     }
     else
     {
-      this.router.navigateByUrl('Checkout')
+      this.http.Checkout(this.cart).subscribe(x => console.log(x));
     }
   }
   removeItem(index){

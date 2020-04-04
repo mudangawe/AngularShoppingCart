@@ -2,10 +2,16 @@
 
 
 /.vs
-/ASPCOREBACKEND/PopulateData/bin
+
+/ASPCOREBACKEND/Test/PopulateData/bin
 /ASPCOREBACKEND/Source/Entityframework/obj
 /ASPCOREBACKEND/Source/Entityframework/bin/
 /ASPCOREBACKEND/.vs
-/ASPCOREBACKEND/PopulateData/obj
+/ASPCOREBACKEND/Source/PopulateData/obj
 /ASPCOREBACKEND/Source/ASPCOREBACKEND/obj
-/ASPCOREBACKEND/Source/Application/obj/
+/ASPCOREBACKEND/Source/ASPCOREBACKEND/bin
+/ASPCOREBACKEND/Source/Application/bin/
+/ASPCOREBACKEND/Source/Application/obj
+/ASPCOREBACKEND/Source/PopulateData/obj
+
+

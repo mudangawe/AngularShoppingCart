@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   constructor(private user:UserDetailsService) { 
     if(this.user.anyUserlogIn())
     {
-      this.profile = this.user.getUserData();
+      this.profile = this.user.getUserDetails();
     }
   }
 

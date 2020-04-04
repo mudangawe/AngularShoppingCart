@@ -46,7 +46,6 @@ export class RegisterComponent implements OnInit {
     })
   }
   onSubmit() {
-    
     this.submitted = true;
     this.http.SignUp(this.registerGroup.value).subscribe(response => this.actOnResponse(response))
     this.openDialog();
@@ -64,7 +63,7 @@ export class RegisterComponent implements OnInit {
   }
   actOnResponse(response)
   {
-    this.Response.intitialCloseDialog(true)
+    this.Response.closeDialog(true)
 
   }
 

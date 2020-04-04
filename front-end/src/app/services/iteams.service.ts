@@ -35,12 +35,13 @@ export class IteamsService {
     console.log(index);
     if (index == -1 ) {
       this.cartProduct = {
-        id : item.productID,
-        name: item.name,
-        quatity : 1,
-        price: item.price,
+        ProductID : item.productID,
+        Name: item.name,
+        Quantity : 1,
+        Price: item.price,
         imageUrl: item.imageUrl,
-        subTotal:  item.price
+        SubTotal:  item.price,
+        Discount:0
        } 
       this.cart.push(this.cartProduct);
      
@@ -88,7 +89,7 @@ export class IteamsService {
     this.page = page;
     this.subjectPage.next({ page: this.page })
   }
-  intitialCloseDialog(message:any){
+  closeDialog(message:any){
     this.httpResponse.next({response: message})
   }
   excuteCloseDialog():Observable<any>{
