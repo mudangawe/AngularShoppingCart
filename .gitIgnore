@@ -3,7 +3,8 @@
 
 /.vs
 /ASPCOREBACKEND/PopulateData/bin
- ASPCOREBACKEND/Entityframework/obj
-/ASPCOREBACKEND/Entityframework/bin/
+/ASPCOREBACKEND/Source/Entityframework/obj
+/ASPCOREBACKEND/Source/Entityframework/bin/
 /ASPCOREBACKEND/.vs
 /ASPCOREBACKEND/PopulateData/obj
+/ASPCOREBACKEND/Source/ASPCOREBACKEND/obj
