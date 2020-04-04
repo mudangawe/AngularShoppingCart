@@ -31,9 +31,7 @@ export class CartComponent implements OnInit {
     this.totalPrice();
   }
   totalPrice () {
-
-    this.total =  this.cart.reduce((subTotal,item) => subTotal + item.subTotal ,0 )
-  
+    this.total =  this.cart.reduce((subTotal,item) => subTotal + item.SubTotal ,0 )
   }
   quantityChanged(qty,index)
   {
