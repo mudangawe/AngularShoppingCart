@@ -23,13 +23,19 @@
 </div>
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-credit" role="tab" aria-controls="nav-credit" aria-selected="true">Credit Card</a>
-        <a class="nav-item nav-link" id="nav-paypal-tab" data-toggle="tab" href="#nav-paypal" role="tab" aria-controls="nav-paypal" aria-selected="false">Paypal</a>
-        <a class="nav-item nav-link" id="nav-debit-tab" data-toggle="tab" href="#nav-debit" role="tab" aria-controls="nav-debit" aria-selected="false">Debit card</a>
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-credit" role="tab" aria-controls="nav-credit" aria-selected="true"> Paypal</a>
+        <a class="nav-item nav-link" id="nav-paypal-tab" data-toggle="tab" href="#nav-paypal" role="tab" aria-controls="nav-paypal" aria-selected="false">Credit Card</a>
+    
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-credit" role="tabpanel" aria-labelledby="nav-home-tab"><app-credit-card-form></app-credit-card-form></div>
-    <div class="tab-pane fade" id="nav-paypal" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
-    <div class="tab-pane fade" id="nav-debit" role="tabpanel" aria-labelledby="nav-contact-tab"><app-credit-card-form></app-credit-card-form></div>
+    <div class="tab-pane fade show active" id="nav-credit" role="tabpanel" aria-labelledby="nav-home-tab">
+        <app-pay-pal-form>
+            
+        </app-pay-pal-form>
+    </div>
+    <div class="tab-pane fade" id="nav-paypal" role="tabpanel" aria-labelledby="nav-profile-tab">
+        
+    </div>
+  
   </div>

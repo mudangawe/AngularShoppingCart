@@ -2,7 +2,6 @@
 .contactUsForm{
    box-shadow: 0 0 0 5px #0002;
    background-color: #0002;
-   padding: 1.8rem;
    display: flex;
    flex-direction: column;
 }

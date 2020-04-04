@@ -31,8 +31,13 @@ export class CartComponent implements OnInit {
     this.totalPrice();
   }
   totalPrice () {
+<<<<<<< HEAD
     this.total =  this.cart.reduce((subTotal,item) => subTotal + item.SubTotal ,0 )
     console.log(this.total)
+=======
+    this.total =  this.cart.reduce((subTotal,item) => subTotal + item.subTotal ,0 )
+  
+>>>>>>> master
   }
   quantityChanged(qty,index)
   {
@@ -50,8 +55,15 @@ export class CartComponent implements OnInit {
       this.items.updateCart(this.cart);
   }
   verifyUser(){
+<<<<<<< HEAD
     if(!this.authoCookie.getAuth() == null){
       this.router.navigateByUrl('login');
+=======
+    if(this.user.anyUserlogIn())
+    {
+      this.router.navigateByUrl('login')
+      this.user.setLoginFirst();
+>>>>>>> master
     }
     else
     {
