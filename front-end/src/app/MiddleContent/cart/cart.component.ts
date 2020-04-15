@@ -57,6 +57,7 @@ export class CartComponent implements OnInit {
     }
     else
     {
+      this.router.navigateByUrl('/checkout');
       this.http.Checkout(this.cart).subscribe(x => console.log(x));
     }
   }

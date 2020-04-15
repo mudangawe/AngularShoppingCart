@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "dgSpecHash": "zCsSHEcAst+Ywt0mA7EfekqLTEOkpeyC1CECxpt4V0QVwL2aUp7Chim+vhHMOFsRZ5KQU9jD0SpCtpgMYX3evg==",
+  "success": false,
+  "projectFilePath": "D:\\Source\\Angular\\shopping cart\\AngularShoppingCart\\ASPCOREBACKEND\\Test\\PopulateData\\PopulateData.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\bytescout.spreadsheet\\3.7.0.1832\\bytescout.spreadsheet.3.7.0.1832.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1000\\microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.data.oledb\\4.7.0\\system.data.oledb.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.diagnostics.performancecounter\\4.7.0\\system.diagnostics.performancecounter.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.7.0\\system.security.cryptography.protecteddata.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\NDIVHUWO\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Source\\Angular\\shopping cart\\AngularShoppingCart\\ASPCOREBACKEND\\Test\\Source\\Application\\Application.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Source\\Angular\\shopping cart\\AngularShoppingCart\\ASPCOREBACKEND\\Test\\Source\\Application\\Application.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Source\\Angular\\shopping cart\\AngularShoppingCart\\ASPCOREBACKEND\\Test\\Entityframework\\Entityframework.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Source\\Angular\\shopping cart\\AngularShoppingCart\\ASPCOREBACKEND\\Test\\Entityframework\\Entityframework.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Source\\Angular\\shopping cart\\AngularShoppingCart\\ASPCOREBACKEND\\Test\\Application\\Application.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Source\\Angular\\shopping cart\\AngularShoppingCart\\ASPCOREBACKEND\\Test\\Application\\Application.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Bytescout.Spreadsheet 3.7.0.1832' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Bytescout.Spreadsheet",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Office.Interop.Excel 15.0.4795.1000' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Office.Interop.Excel",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

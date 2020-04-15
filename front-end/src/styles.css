@@ -7,14 +7,34 @@ form{
         margin-right: 20%;
         margin-top:3%;
 }
+form .form-group input, form .form-group textarea{
+    border: none;
+    border-bottom: 0.1rem solid lightgray;
+}
+form .form-group input:focus, form .form-group textarea:focus{
+    background-color: lightgray;
+}
+form button{
+    width: 100%;
+    padding: 5px 5px;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: lightskyblue;
+    color: white;
+}
 .profileImg{
     border-radius: 50%;
 }
 
 @media screen and (max-width:480px)
 {
-    .form{
-        width: 100%;
+    form{
         margin: 0;
+        margin-top:3%;
     }
 }
+.error{
+    color: red;
+    font-size: 12px;;
+}
+

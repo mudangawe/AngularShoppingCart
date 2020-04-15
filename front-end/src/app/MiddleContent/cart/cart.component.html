@@ -53,8 +53,19 @@
                
               </tr>
             <tr >
-                <td colspan="3"><button (click)="verifyUser()">Checkout </button>
-                
+                <td colspan="3">
+                    <div class="row"> 
+                        <div class="col-sm-7 checkout">
+                            <button (click)="verifyUser()">
+                                Checkout 
+                            </button>
+                        </div>
+                        <div  class="col-sm-5 Continue" >
+                            <button (click)="verifyUser()">
+                                Continue shopping
+                            </button>      
+                        </div>
+                  </div>
                 </td>
               </tr>
         </tfoot>
