@@ -16,17 +16,16 @@ export class UserDetailsService {
 
 }
 
-   getUserDetails(){
-    let userDetails= {'firstName': this.storage.get('firstname'),
-                      'lastName':  this.storage.get('lastname')}
-    return userDetails;
-    }
+  getUserDetails(){
+  let userDetails= {'firstName': this.storage.get('firstname'),
+                    'lastName':  this.storage.get('lastname')}
+  return userDetails;
+  }
 
 
-    setUserDetails(user){
-      console.log(user)
-      this.storage.set('firstname', user.firstName);
-      this.storage.set('lastname', user.lastName);
+  setUserDetails(user){
+    this.storage.set('firstname', user.firstName);
+    this.storage.set('lastname', user.lastName);
     this.setUpdateuser();
   }
 

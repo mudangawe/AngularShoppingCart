@@ -1,28 +1,31 @@
 <section id="profile">
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 10rem;">
       <a>  <div class="row no-gutters">
             <div>
-              <img src="assets/1.png" class="profileImg" style="height: 3.4rem;margin:1.5rem 0rem 0rem 0rem" alt="..."  >
+              <img src="assets/1.png" class="profileImg" style="height: 2.4rem;margin:1.5rem 0rem 0rem 0rem" alt="..."  >
             </div>
             <div >
               <div class="card-body">
-                <h5 class="card-title">{{profile.firstName}}   </h5>
-                <h5 class="card-title">{{profile.lastName}}   </h5>
-                <p class="card-text"><small class="text-muted">View profile</small></p>
+                <h6 class="card-title">
+                    {{profile.firstName}} <br>  {{profile.lastName}} 
+                </h6>
+                <span class="card-text">
+                    <small class="text-muted">
+                      <a> View profile</a>
+                    </small>
+                </span>
               </div>
             </div>
           </div></a>
         <ul class="list-group list-group-flush">
-         <a> <li class="list-group-item">Shooping Cart</li></a>
+            <a> <li class="list-group-item">Shooping Cart</li></a>
             <a><li class="list-group-item">My Account</li></a>
-                <a><li class="list-group-item">Order History</li></a>
-                    <a><li class="list-group-item">Contact us</li></a>
-                        <a ><li class="list-group-item">Rewards</li></a>
-                            </ul>
-        <div class="card-body">
-           
-         
-          <a (click)="logout()">Log out</a>
-        </div>
+            <a><li class="list-group-item">Order History</li></a>
+            <a><li class="list-group-item">Contact us</li></a>
+            <a ><li class="list-group-item">Rewards</li></a>
+            <a (click)="logout()"> 
+              <li class="list-group-item">Log out</li>
+            </a>
+        </ul>
       </div>
 </section>

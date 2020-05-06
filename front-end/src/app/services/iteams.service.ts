@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable,Inject } from '@angular/core';
 import { Observable, Subject, ObservedValueOf } from 'rxjs'
 import { filterData , Cartproduct} from '../Interface/Filter'
-
+import {LOCAL_STORAGE,StorageService} from 'ngx-webstorage-service'
 
 
 @Injectable({
@@ -21,18 +21,22 @@ export class IteamsService {
   items =[];
   cart  =[];
   cartProduct :Cartproduct
-  constructor() { }
+  constructor( @Inject(LOCAL_STORAGE) private storage: StorageService) { 
+    if(this.storage.get('cart') != null)
+    {
+      this.cart = this.storage.get('cart');
+
+    }
+  }
   
   getProduct() {
     
     let from = (this.page * this.perPage) - this.perPage;
     let to = (this.page * this.perPage);
-   
     return this.OnDisplayQueue.slice(from, to);
   }
   addToCart(item): void {
     let index = this.getIndexOfItem(item)
-    console.log(index);
     if (index == -1 ) {
       this.cartProduct = {
         ProductID : item.productID,
@@ -44,34 +48,44 @@ export class IteamsService {
         Discount:0
        } 
       this.cart.push(this.cartProduct);
-     
+      this.saveCartToLocalStorage();
     }
     else
     {
-      this.cart[index].quatity++;
-      this.cart[index].subTotal = item.price * this.cart[index].quatity ;
+      this.cart[index].Quantity++;
+      this.cart[index].SubTotal = item.price * this.cart[index].Quantity ;
     }
    
   }
+  clearCart()
+  {
+    this.cart = [];
+  }
+  saveCartToLocalStorage(){
+    if(this.storage.get('cart') != null)
+      {
+        this.storage.remove('cart');
+      }
+      this.storage.set('cart',this.cart);
+  }
   getIndexOfItem(item) {
     for (let index = 0; index < this.cart.length; index++) {
-      if (this.cart[index].id == item.productID) {
+      if (this.cart[index].ProductID == item.productID) {
         return index;
       }
-     
     }
     return -1;
   }
   updateCart(cart)
   {
     this.cart = cart;
+    this.saveCartToLocalStorage();
   }
   getItems() {
     return this.cart;
   }
   sendLengthOfCart() {
-    this.subject.next({ cart: this.cart })
-
+    this.subject.next({ cart: this.cart})
   }
   getLengthOfCart(): Observable<any> {
     return this.subject.asObservable();

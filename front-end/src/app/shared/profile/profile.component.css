@@ -1,0 +1,11 @@
+.list-group a li, .card-body a li{
+    text-align: left;
+}
+.list-group a li:hover, .card-body a li:hover{
+    background-color: #00A7FF;
+    color: white;
+    cursor: pointer;
+}
+.text-muted a{
+    cursor: pointer;
+}

@@ -28,10 +28,8 @@ export class ProductsComponent implements OnInit {
     {
       this.http.LoadProductOnCategories(this.filter).subscribe(response => {this.setProduct(response)});
     }
-    else
-    {
-     
-      this.http.GetProductCarousel().subscribe(response => {this.setProduct(response)});
+    else{
+      this.http.GetProduct().subscribe(response => {this.setProduct(response)});
     }
   
   }

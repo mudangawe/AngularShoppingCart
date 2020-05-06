@@ -17,7 +17,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ASPCOREBACKEND.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -65,37 +65,40 @@ namespace ASPCOREBACKEND.Controllers
         public List<ProductDto>GetAll()
         {
             var command = "exec GetAllProduct";
-            return ConvertToList(Connection(command));
+            return ConvertToList(Connection(command)).Select(prod => mapper.Map<ProductDto>(prod)).ToList();
         }
         [HttpGet("carousel")]
         public async Task<ActionResult<List<ProductDto>>> GetProductForCarousel()
         {
             var command = "exec GetCarousel";
-            return  ConvertToList(Connection(command));
+            return ConvertToList(Connection(command)).Select(prod => mapper.Map<ProductDto>(prod)).ToList();
         }
         [HttpGet("Display")]
         public async Task<ActionResult<List<ProductDto>>> GetProductDisplay()
         {
             var command = "exec GetDisplay";
-            return ConvertToList(Connection(command)); 
+            return ConvertToList(Connection(command)).Select(prod => mapper.Map<ProductDto>(prod)).ToList();
 
         }
-        [HttpGet("Categories/{categories}")]
-        public async Task<ActionResult<List<ProductDto>>> GetProductCategory(string categories)
+        [HttpPost("Categories")]
+        public async Task<ActionResult<List<ProductDto>>> GetProductCategory([FromBody]CategoriesDTO categoryInput)
         {
-            var command = "exec GetProductCategory @Categories=" + categories;
-            return ConvertToList(Connection(command));
+
+            var command = "exec GetProductCategory @Categories=" + (int)Enum.Parse(typeof(Categories), categoryInput.CategoriesName.ToUpper());
+            return ConvertToList(Connection(command)).Select(prod => mapper.Map<ProductDto>(prod)).ToList();
         }
-        private List<ProductDto> ConvertToList(DataTable dt)
+        [NonAction]
+        private List<Product> ConvertToList(DataTable datatable)
         {
-            var convertedList = new List<ProductDto>();
-                foreach (var dataRow in dt.Select())
-                {
-                    convertedList.Add(Mapping.CreateItemFromRow<ProductDto>(dataRow));
-                }
-                Console.WriteLine();
+            var convertedList = new List<Product>();
+            foreach (var dataRow in datatable.Select())
+            {
+               convertedList.Add(Mapping.CreateItemFromRow<Product>(dataRow));
+            }
+              
             return convertedList;
         }
+        [NonAction]
         private DataTable Connection(string commandText)
         {
             using (var command = context.Database.GetDbConnection().CreateCommand())

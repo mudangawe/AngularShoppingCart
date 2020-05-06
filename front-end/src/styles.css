@@ -17,10 +17,14 @@ form .form-group input:focus, form .form-group textarea:focus{
 form button{
     width: 100%;
     padding: 5px 5px;
-    font-size: 20px;
-    font-weight: 400;
-    background-color: lightskyblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    background-color: #00A7FF;
     color: white;
+}
+.innerContent{
+    position: absolute;
 }
 .profileImg{
     border-radius: 50%;
@@ -37,4 +41,11 @@ form button{
     color: red;
     font-size: 12px;;
 }
-
+a{
+    color: black;
+    font-weight: 380;
+}
+.buy{
+    background-color: #00A7FF;
+    color: white ;
+}

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
@@ -20,11 +21,16 @@ namespace Application
             foreach (DataColumn c in row.Table.Columns)
             {
                 PropertyInfo p = item.GetType().GetProperty(c.ColumnName);
-
-                if (p != null && row[c] != DBNull.Value)
+                if (c.ColumnName == "Category")
+                {
+                    var value = row[c];
+                    p.SetValue(item, (Categories)Convert.ToInt32(row[c]), null);
+                }
+                else if (p != null && row[c] != DBNull.Value)
                 {
                     p.SetValue(item, row[c], null);
                 }
+                
             }
         }
 

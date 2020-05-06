@@ -1,33 +1,22 @@
 <app-top-link></app-top-link>
-<div class="grid-container">
-    
-    <div class="companyDetails">
-        <div class="companyName"><h3>Furniture</h3></div>
-      
-    </div>
-    <div >
-        <div  *ngIf="!isLogin">
-            <a routerLink="/login">Sign in</a>|<a routerLink="/register">Sign up</a>  
-        </div>
-    <div *ngIf="isLogin" class="MiddleContentheader" >
-        
-                <div class="dropdown">
-                    <img src="assets/1.png" class="profileImg" alt="Profile" width="25" height="25">
-                    <div class="dropdown-content">
-                        <app-profile></app-profile>
-                    </div>
-                  
-                </div>  
-               <fa-icon style="margin-left: 10px;" [icon]="notification" size="1x"></fa-icon>
-    </div>
-</div>
-    <div class="cartItems"> 
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
-                    <fa-icon [icon]="cart"  size="1x" ></fa-icon>
-                    <span > Cart:({{CartItems.length }}) </span>
-                </button>
+<div class="sticky">
+    <div class="grid-container">
+        <div class="companyDetails">
+            <div class="companyName">
+            <a routerLink=""> 
+                <h3 id="websiteTittle">Furniture</h3>
+                </a>
             </div>
-            
+        </div>
+        <div class="cartItems"> 
+                <div class="dropdown">
+                    <button class="btn btn-secondary" id="dropdownMenuButton" 
+                    routerLink="/Cart">
+                        <fa-icon [icon]="cart"  size="1x" ></fa-icon>
+                        <span > Cart:({{CartItems.length }}) </span>
+                    </button>
+                </div>
+                
+        </div>
     </div>
 </div>

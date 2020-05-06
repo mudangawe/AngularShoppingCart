@@ -1,7 +1,8 @@
 <div class="shelves"> 
-    <div class="shelf-cards" *ngFor="let display of displayProduct" >
-            <img src={{display.imageUrl}} style="width: 300px; height: 200px;" required >
-            <button style="width:  300px;">{{display.category}}<span id="arrow">&#8250;</span></button> 
-           
+    <div class="shelf-cards" *ngFor="let display of displayProduct">
+        <div class="innerContent">
+            <img src={{display.imageUrl}} style="width: 100%; height: 10rem;" required >
+            <button style="width:  100%;" routerLink="\display.category">{{display.category}}</button> 
         </div>
+    </div>
 </div>

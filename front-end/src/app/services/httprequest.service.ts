@@ -5,39 +5,40 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
   providedIn: 'root'
 })
 export class HTTPRequestService {
+  localhost:"http://localhost:4200"
 
   constructor(private http: HttpClient, private authoCookie: AuthoCookiesHandlerService) { }
   GetProductCarousel(){
-    return this.http.get("http://localhost:44300/Product/carousel");
+    return this.http.get("https://localhost:44300/api/Product/carousel");
   }
   GetProductDisplay(){
-     return this.http.get("http://localhost:44300/Product/Display");
+     return this.http.get("https://localhost:44300/api/Product/Display");
   }
   GetProduct(){
-      return this.http.get("http://localhost:44300/Product/carousel");
+      return this.http.get("https://localhost:44300/api/Product/GetAll");
   }
   LoadProductOnCategories(filter) {
-      return this.http.post("https://localhost:44300/Product/categories", filter);
+      console.log(filter)
+      return this.http.post("https://localhost:44300/api/Product/categories", filter);
   }
   SignIn(user)
   {
     return this.http.post("https://localhost:44300/api/Customer/SignIn", user, 
                           {observe:'response'});
   }
-  VerifySignIn()
-  {
+  VerifySignIn(){
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authoCookie.getAuth())
     return this.http.get("https://localhost:44300/api/Customer/Get",{headers:headers});
   }
-  SignUp(userDetails)
-  {
-    return this.http.post("http://localhost:44300/api/Customer/Create",userDetails);
-  }
-  AddProduct(productDetails)
-  {
-      return  this.http.post("http://localhost:44300/Product",productDetails);
 
+  SignUp(userDetails){
+    return this.http.post("https://localhost:44300/api/Customer/Create",userDetails);
   }
+
+  AddProduct(productDetails){
+      return  this.http.post(this.localhost+ "/Product",productDetails);
+  }
+
   Checkout(Products)
   {
      let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authoCookie.getAuth());

@@ -1,20 +1,26 @@
 #footerContent{
+    display: flex;
+    direction: row;
+    flex: wrap;
+    margin: 2em;
+}
+#footer{
     background-color: grey;
-    text-align: center;
-    position: absolute;
     width: 100%;
     margin-top:20px;
-
-    
+    padding: 1.5rem  0 1.5rem 0;
 }
-
 ul li {
     list-style-type: none;
-    text-align: left;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
 
+}
+ul{
+    padding:0;
+}
 .title H6{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.2rem;
+}
+section h5{
+    color:whitesmoke;
 }

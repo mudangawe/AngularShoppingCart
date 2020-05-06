@@ -43,26 +43,34 @@ export class CartComponent implements OnInit {
     {
       this.cart[index].SubTotal =  this.cart[index].Price * qty;
       this.cart[index].Quantity = qty;
+      this.updateCart();
     }
 
   } 
   updateCart()
   {
       this.items.updateCart(this.cart);
+      this.totalPrice();
+      this.items.sendLengthOfCart();
   }
   verifyUser(){
 
     if(!this.authoCookie.getAuth() == null){
-      this.router.navigateByUrl('login');
+      this.router.navigateByUrl('/login');
     }
     else
     {
-      this.router.navigateByUrl('/checkout');
+      this.router.navigateByUrl('/Checkout');
       this.http.Checkout(this.cart).subscribe(x => console.log(x));
     }
   }
   removeItem(index){
     this.cart.splice(index,1);
-    this.totalPrice();
+    this.updateCart();
+  }
+  clearCart()
+  {
+    this.cart =[];
+    this.updateCart()
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HTTPRequestService} from '../../services/httprequest.service'
 import{DomSanitizer} from '@angular/platform-browser'
-
+import{IteamsService} from '../../services/iteams.service'
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -12,7 +13,8 @@ export class CarouselComponent implements OnInit {
   firstProduct :any ;
   imageUrl ="assets/Images/BEDROOM/Bed.png";
   
-  constructor(private http: HTTPRequestService, private sanitizer: DomSanitizer) {
+  constructor(private http: HTTPRequestService, private sanitizer: DomSanitizer
+              ,private items:IteamsService, private router: Router) {
     this.geIteams();
    }
 
@@ -27,6 +29,10 @@ export class CarouselComponent implements OnInit {
   {
     this.productData =products;
     this.firstProduct = this.productData.splice(0,1);
+  }
+  buyItNow(product){
+     this.items.addToCart(product);
+     this.router.navigateByUrl("/Cart")
   }
   
   

@@ -4,6 +4,7 @@
 /.vs
 
 /ASPCOREBACKEND/Test/PopulateData/bin
+/ASPCOREBACKEND/Test/PopulateData/obj
 /ASPCOREBACKEND/Source/Entityframework/obj
 /ASPCOREBACKEND/Source/Entityframework/bin/
 /ASPCOREBACKEND/.vs

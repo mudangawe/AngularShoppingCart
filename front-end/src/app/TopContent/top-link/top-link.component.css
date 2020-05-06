@@ -1,5 +1,43 @@
-ul li{
-    list-style-type: circle;
+ul{
+    list-style-type: none;
     display: inline;
-    padding: 0.4rem;
+    text-align: right; 
+}
+
+.dropdown-item button{
+    border-radius: 0.2rem;
+    margin: 20px;
+ }
+ .dropdown-content{
+     visibility: hidden;
+     right: 0;
+     transition: all 0.5s ease;
+     position: absolute;
+     background-color: #f1f1f1;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 1;
+ }
+.dropdown{
+     float:right; 
+     z-index: 5;
+ }
+.dropdown:hover .dropdown-content, .dropdown-content:hover {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+.dropdown-content a {
+     color: black;
+     text-decoration: none;
+     transition: opacity 0.5s;
+     opacity: 2;
+   }
+
+@media (max-width: 400px){
+    ul{
+        margin-block-start:0;
+        padding-inline-start:0;
+    }
+
 }

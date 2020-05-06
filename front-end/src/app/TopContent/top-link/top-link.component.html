@@ -1,5 +1,17 @@
-<ul>
-    <li > <a routerLink="">&#8250; Home </a></li>
-    <li> <a  routerLink="/Contact">&#8250; Contact</a> </li>
-    <li>  <a  routerLink="/Cart">&#8250; Cart</a></li>
+<ul class="navBar">
+    <li  *ngIf="!isLogin" >
+        <a routerLink="/login">Sign-in</a>|<a routerLink="/register">Sign-up</a>  
+    </li>
+    <li *ngIf="isLogin" >
+        <div class="dropdown">
+            <img src="assets/1.png" class="profileImg" alt="Profile" width="30" height="30">
+            <div class="dropdown-content">
+                <app-profile></app-profile>
+            </div>
+        
+        </div>  
+    </li>
+    <li *ngIf="isLogin">
+        <fa-icon [icon]="notification" size="2x"></fa-icon>
+    </li>
 </ul>

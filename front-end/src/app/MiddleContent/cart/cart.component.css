@@ -7,9 +7,16 @@
 
 .Continue button{
     background-color:lightgray;
-    margin: 1.5rem 0  0;
+   
 }
 .checkout button{
-    background-color: lightskyblue;
-    width: 50%;
+    background-color:#00A7FF;
+    color: white;
+    font-size: 20px;
+    height: 2.8rem;
+}
+.outBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

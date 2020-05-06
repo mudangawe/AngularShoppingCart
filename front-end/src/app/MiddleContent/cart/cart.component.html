@@ -21,23 +21,23 @@
                             <span> Color: Blue </span>  
                      </div>
                 </div>
-                <th >R {{item.price}} </th>
+                <th >R {{item.Price}} </th>
                 <th >
-                    
-                    <input type="text" [value]="item.quatity"  (change)="quantityChanged($event.target.value,i)" style="width: 1.6rem ; text-align: center;"/>
-                   
+                    <input type="text" [value]="item.Quantity"  (change)="quantityChanged($event.target.value,i)" style="width: 1.6rem ; text-align: center;"/>
                 </th>
                 <th>
-                    R {{item.subTotal}}
+                    R {{item.SubTotal}}
 
                    
-                            <div class="row">
-                                
-                               
-                                <div class="col-sm-2">
-                                    <a (click)="removeItem(i)" >  <fa-icon [icon]="trashIcon"> </fa-icon> </a>
-                                </div>
-                            </div>
+                    <div class="row">
+                        
+                        
+                        <div class="col-sm-2">
+                            <a (click)="removeItem(i)" >  
+                                <fa-icon [icon]="trashIcon"> </fa-icon> 
+                            </a>
+                        </div>
+                    </div>
                    
 
                 </th>
@@ -54,16 +54,23 @@
               </tr>
             <tr >
                 <td colspan="3">
-                    <div class="row"> 
-                        <div class="col-sm-7 checkout">
-                            <button (click)="verifyUser()">
-                                Checkout 
-                            </button>
+                    <div class="outBox"> 
+                       
+                        <div  class="Continue" >
+                            <button (click)="clearCart()">
+                                Clear Cart
+                            </button>   
+                            <div  class="Continue" >
+                                <button routerLink="">
+                                    Continue shopping
+                                </button>      
+                            </div>   
                         </div>
-                        <div  class="col-sm-5 Continue" >
+                        
+                        <div class="checkout">
                             <button (click)="verifyUser()">
-                                Continue shopping
-                            </button>      
+                                Proceed To Checkout
+                            </button>
                         </div>
                   </div>
                 </td>
