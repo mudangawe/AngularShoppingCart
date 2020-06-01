@@ -25,11 +25,36 @@
     position: relative;
 }
 
-.containerBody button{
+.button{
+    position: relative;
     font-size: 0.9rem;
     border-bottom: 1px  solid black;
     border-radius: 4px;
+    transition-duration: all 0.1s;
+
 }
+.button span:after{
+    content: '';
+    position: absolute;
+    background: #90EE90;
+    opacity: 0;
+    right: -5px;
+    transition: all 0.1s;
+}
+.button:focus span{
+    padding-right: 5px;
+    transition: 0.8s;    
+}
+.button:active{
+    opacity: 1;
+}
+.button:focus span:after{
+    opacity: 1;
+    right: 0;
+    padding-left: 5s;
+    transition: 0.8s;
+}
+
 #description{
     font-family: 'Times New Roman', Times, serif;  
     font-size: 1.1rem;
@@ -37,4 +62,21 @@
 }
 #price{
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+@media only screen and (max-width:380px){
+  .product-card{
+      width: 8rem;
+      height: 17rem;
+  }  
+  .containerBody button{
+     font-size: 0.6rem;
+  }
+  #description{
+    font-size: 0.8rem;
+  }
+} 
+@keyframes spin{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+
 }

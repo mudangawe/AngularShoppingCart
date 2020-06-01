@@ -3,23 +3,26 @@
     direction: row;
     flex: wrap;
     margin: 2em;
+    font-size: 0.8rem;
 }
 #footer{
     background-color: grey;
     width: 100%;
     margin-top:20px;
     padding: 1.5rem  0 1.5rem 0;
+    font-size: 0.8rem;
 }
 ul li {
     list-style-type: none;
+    font-size: inherit;
 
 }
 ul{
     padding:0;
 }
-.title H6{
+h6{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.2rem;
+    color: ivory;
 }
 section h5{
     color:whitesmoke;

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {PayPalFormComponent} from '../../Forms/pay-pal-form/pay-pal-form.component'
 import { CheckoutComponent } from './checkout.component';
 
 describe('CheckoutComponent', () => {
@@ -8,7 +8,7 @@ describe('CheckoutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CheckoutComponent ]
+      declarations: [ CheckoutComponent ,PayPalFormComponent]
     })
     .compileComponents();
   }));

@@ -9,7 +9,7 @@ export interface filterData{
 }
 export interface Product{
     
-    productID:number,
+    ProductId:number,
     brand:string,
     price:number,
     categories:string,
@@ -20,7 +20,7 @@ export interface Product{
 }
 
 export interface  Cartproduct{
-  ProductID: number,
+  ProductId: number,
   Name: string,
   Quantity: number,
   Price: number,
@@ -29,7 +29,7 @@ export interface  Cartproduct{
   Discount: number
  }
  export interface Profile{
-   name:string,
+   firstname:string,
    surname:string,
    email:string,
    address:string

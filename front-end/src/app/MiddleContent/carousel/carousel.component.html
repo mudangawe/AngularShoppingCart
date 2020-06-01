@@ -1,45 +1,15 @@
 <div class="carousel slide" data-ride="carousel"  id="welcomCarousel"> 
-    <div class="carousel-inner" >
-       
+    <div class="carousel-inner">
         <div  *ngFor="let product of firstProduct" class="carousel-item active">
-            <div class="card" >
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img src={{product.imageUrl}} class="card-img"  alt="...">
-                        
-                    </div>  
-                    <div class="col-sm-3"> 
-                        <div class="bodyOfCart">
-                            <h5 class="-titlcarde">{{product.name}}</h5>
-                            <p class="card-text">{{product.destription}}</p>
-                            <h5 class="card-title">R{{product.price}}</h5>
-                            <a  class="btn buy"  (click)="buyItNow(product)">
-                                Buy it Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="card content" 
+            [ngStyle]="{'background-image':'url('+ product.imageUrl +')'}">
+               
             </div>
         </div>
         <div *ngFor="let product of productData" class="carousel-item">
-            <div class="card">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img src={{product.imageUrl}} class="card-img"  alt="...">
-                        
-                    </div>  
-                    <div class="col-sm-3"> 
-                        <div class="bodyOfCart">
-                            <h5 class="-titlcarde">{{product.name}}</h5>
-                            <p class="card-text">{{product.destription}}</p>
-                            
-                            <h5 class="card-title">R{{product.price}}</h5>
-                            <a (click)="buyItNow(product)" class="btn buy">
-                                Buy it Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="card content"
+            [ngStyle]="{'background-image':'url('+ product.imageUrl +')'}">                     
+               
             </div>
         </div>
 

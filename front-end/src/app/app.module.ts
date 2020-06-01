@@ -28,7 +28,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 import {AddProductComponent} from '../app/Forms/add-product/add-product.component'
 import {HttpClientModule} from '@angular/common/http';
-import { MessageComponent } from './shared/dialogs/message/message.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatProgressSpinnerModule } from '@angular/material';
@@ -38,14 +37,15 @@ import { PayPalFormComponent } from './Forms/pay-pal-form/pay-pal-form.component
 import { DebitFormComponent } from './Forms/debit-form/debit-form.component';
 import { ProfileComponent } from './shared/profile/profile.component'
 import {StorageServiceModule} from 'ngx-webstorage-service'
+import {NgxPayPalModule} from 'ngx-paypal'
 const appRoutes: Routes =[
   {path:"", component: LandingPageComponent},
   {path:"Cart", component: CartComponent},
-  {path:"Bedroom", component: BedRoomComponent},
-  {path:"Kitchen", component: KitchenComponent},
-  {path:"LivingRoom", component: LivingRoomComponent},
-  {path:"DiningRoom", component: DiningRoomComponent},
-  {path:"Garden", component: GardenComponent},
+  {path:"bedroom", component: BedRoomComponent},
+  {path:"kitchen", component: KitchenComponent},
+  {path:"livingroom", component: LivingRoomComponent},
+  {path:"diningroom", component: DiningRoomComponent},
+  {path:"garden", component: GardenComponent},
   {path:"Contact", component: ContactComponent},
   {path:"login", component: LoginComponent},
   {path:"register", component: RegisterComponent},
@@ -76,7 +76,6 @@ const appRoutes: Routes =[
     ContactComponent,
     PaginationComponent,
     AddProductComponent,
-    MessageComponent,
     CheckoutComponent,
     CreditCardFormComponent,
     PayPalFormComponent,
@@ -95,9 +94,10 @@ const appRoutes: Routes =[
     BrowserAnimationsModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    StorageServiceModule
+    StorageServiceModule,
+    NgxPayPalModule
   ],
   providers: [],
-  bootstrap: [AppComponent,MessageComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

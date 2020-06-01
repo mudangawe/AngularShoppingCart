@@ -3,7 +3,7 @@ import {ReactiveFormsModule} from '@angular/forms'
 import {By} from '@angular/platform-browser'
 import { RegisterComponent } from './register.component';
 import { DebugElement } from '@angular/core';
-
+import {HttpClientTestingModule} from '@angular/common/http/testing'
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
@@ -12,7 +12,7 @@ describe('RegisterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RegisterComponent ],
-      imports:[ReactiveFormsModule]
+      imports:[ReactiveFormsModule,HttpClientTestingModule]
     })
     .compileComponents();
   }));
@@ -40,22 +40,18 @@ describe('RegisterComponent', () => {
   }))
   it('form should be invalid', async(()=>
   {
-    component.registerGroup.controls['name'].setValue('')
-    component.registerGroup.controls['lastName'].setValue('')
-    component.registerGroup.controls['email'].setValue('')
-    component.registerGroup.controls['number'].setValue('')
-    component.registerGroup.controls['password'].setValue('')
-    component.registerGroup.controls['confirmPassword'].setValue('')
+    component.registerGroup.controls['FullName'].setValue('')
+    component.registerGroup.controls['Email'].setValue('')
+    component.registerGroup.controls['Password'].setValue('')
+    component.registerGroup.controls['ConfirmPassword'].setValue('')
     expect(component.registerGroup.valid).toBeFalsy();
   }))
   it('form should be valid', async(()=>
   {
-    component.registerGroup.controls['name'].setValue('Ndivhuwo')
-    component.registerGroup.controls['lastName'].setValue('Ramashia')
-    component.registerGroup.controls['email'].setValue('ramashia@gmail.com')
-    component.registerGroup.controls['number'].setValue('0724652112')
-    component.registerGroup.controls['password'].setValue('Ramashiag')
-    component.registerGroup.controls['confirmPassword'].setValue('Ramashiag')
+    component.registerGroup.controls['FullName'].setValue('Ndivhuwo')
+    component.registerGroup.controls['Email'].setValue('ramashia@gmail.com')
+    component.registerGroup.controls['Password'].setValue('Ramashiag')
+    component.registerGroup.controls['ConfirmPassword'].setValue('Ramashiag')
     expect(component.registerGroup.valid).toBeTruthy();
   }))
 });

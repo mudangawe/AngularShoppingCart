@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {FormsModule,ReactiveFormsModule  } from '@angular/forms'
 import { CategoriesComponent } from './categories.component';
 import {ProductsComponent} from '../../shared/products/products.component'
+import {HttpClientTestingModule} from '@angular/common/http/testing'
 describe('CategoriesComponent', () => {
   let component: CategoriesComponent;
   let fixture: ComponentFixture<CategoriesComponent>;
@@ -9,7 +10,7 @@ describe('CategoriesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CategoriesComponent,ProductsComponent ],
-      imports:[ReactiveFormsModule,FormsModule]
+      imports:[ReactiveFormsModule,FormsModule,HttpClientTestingModule]
     })
     .compileComponents();
   }));

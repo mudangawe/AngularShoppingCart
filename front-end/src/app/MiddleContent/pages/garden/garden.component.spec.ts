@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {HttpClientTestingModule} from '@angular/common/http/testing'
 import { GardenComponent } from './garden.component';
 import {CategoriesComponent} from '../../categories/categories.component';
 import {PaginationComponent} from '../../../shared/pagination/pagination.component';
@@ -13,7 +13,7 @@ describe('GardenComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ GardenComponent ,CategoriesComponent,PaginationComponent,ProductsComponent],
-      imports:[ReactiveFormsModule,FormsModule,NgbModule]
+      imports:[ReactiveFormsModule,FormsModule,NgbModule,HttpClientTestingModule]
     })
     .compileComponents();
   }));

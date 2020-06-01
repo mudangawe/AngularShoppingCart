@@ -1,8 +1,8 @@
-.welcomCarousel{
-    margin-top:20%;;
-}
 
 #feactures{
-
-    margin-top:6%;
+    position: relative;
+    margin-top: 0.8rem;
+}
+#seactionTitle{
+    margin-top: 3.8rem;
 }

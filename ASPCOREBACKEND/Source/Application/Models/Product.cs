@@ -8,6 +8,7 @@ namespace Application.Models
 {
     public class Product: Entity
     {
+        public int ProductId { get; set; }
         public string Name { get; set; }
         [ForeignKey("Brand")]
         public int BrandId { get; set; }
@@ -19,5 +20,6 @@ namespace Application.Models
         public string Destription { get; set; }
         public string ImageUrl { get; set; }
         public DateTime DateModified { get; set; }
+        public int Quantity { get; set; }
     }
 }

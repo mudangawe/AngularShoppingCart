@@ -8,12 +8,14 @@ import { NavigationBarComponent } from './TopContent/navigation-bar/navigation-b
 import { FooterComponent } from './BottomContent/footer/footer.component';
 import {TopLinkComponent} from '../app/TopContent/top-link/top-link.component'
 import {FormsModule} from '@angular/forms';
+import {ProfileComponent} from './shared/profile/profile.component'
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,FontAwesomeModule, FormsModule,NgbModule
+        RouterTestingModule,FontAwesomeModule, FormsModule,NgbModule,HttpClientTestingModule
       ],
       declarations: [
         AppComponent,
@@ -21,7 +23,8 @@ describe('AppComponent', () => {
         HeaderComponent,
         NavigationBarComponent,
         FooterComponent,
-        TopLinkComponent
+        TopLinkComponent,
+        ProfileComponent
       ],
     }).compileComponents();
   }));

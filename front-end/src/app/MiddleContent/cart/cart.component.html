@@ -1,8 +1,26 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col" style="width: 40%">Item</th> 
+            <th colspan="3">
+                <div class="outBox"> 
+                    <div  class="Continue" >
+                        <button (click)="clearCart()">
+                            Clear Cart
+                        </button>   
+                    </div>
+              </div>
+            </th>
             
+            <th>
+                <div  class="Continue" >
+                    <button routerLink="">
+                        Continue shopping
+                    </button>      
+                </div>    
+            </th>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 40%">Item</th>             
             <th scope="col" style="width: 20%">Price</th> 
             <th scope="col" style="width: 20%">QTY</th> 
             <th scope="col"style="width: 20%" >Subtotal</th> 
@@ -45,34 +63,20 @@
         </tbody>
         <tfoot>
             <tr class="table-secondary">
-                <td>Total: </td>
                 <td></td>
-                <td></td>
-               
-                <td >R {{total}}</td>
-               
-              </tr>
-            <tr >
-                <td colspan="3">
-                    <div class="outBox"> 
-                       
-                        <div  class="Continue" >
-                            <button (click)="clearCart()">
-                                Clear Cart
-                            </button>   
-                            <div  class="Continue" >
-                                <button routerLink="">
-                                    Continue shopping
-                                </button>      
-                            </div>   
-                        </div>
-                        
-                        <div class="checkout">
-                            <button (click)="verifyUser()">
-                                Proceed To Checkout
-                            </button>
-                        </div>
-                  </div>
+                <td> </td>
+                <td> 
+                    Total: 
+                    <span style="font-weight: bold;">R {{total}}
+                    </span> 
+
+                </td>
+                <td>
+                    <div class="checkout">
+                        <button (click)="verifyUser()">
+                            Checkout
+                        </button>
+                    </div>
                 </td>
               </tr>
         </tfoot>

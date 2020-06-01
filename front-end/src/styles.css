@@ -1,16 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; 
+    font-size: 0.9rem;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 form{
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-top:3%;
+        margin-right: 10%;
+        margin-left: 10%;
+        font-size: 0.7rem;
+        
 }
 form .form-group input, form .form-group textarea{
     border: none;
-    border-bottom: 0.1rem solid lightgray;
+    font-size: 0.6rem !important;
 }
+
 form .form-group input:focus, form .form-group textarea:focus{
     background-color: lightgray;
 }
@@ -18,10 +21,11 @@ form button{
     width: 100%;
     padding: 5px 5px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-weight: 500;
     background-color: #00A7FF;
     color: white;
+    border: none;
 }
 .innerContent{
     position: absolute;
@@ -48,4 +52,44 @@ a{
 .buy{
     background-color: #00A7FF;
     color: white ;
+}
+.form{
+    width: 80%;
+    margin-top: 3.4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.leftSide{
+    background: url('assets/profile.jpg') no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.leftSideInner{
+    background-color: #00A7FF;
+    opacity: 0.92;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    color: ivory;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 50%;
+    font-size: 0.7rem;
+}
+.rightSide{
+    background-color: whitesmoke;
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
+}
+.colorCode{
+    color:#00A7FF ;
+}
+.newUser{
+    font-size: 0.7rem;
+    margin-top: 2rem;
+    text-align: center;
 }

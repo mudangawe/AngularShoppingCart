@@ -1,16 +1,53 @@
-
-<div id="'loginRegister'">
-    <h2 align="center">{{title}} </h2>
-<form [formGroup]="loginGroup"  class="loginForm" (ngSubmit)="onSubmit()">
-    <span class="error"> {{errorMessage}}</span>
-    <div class="form-group">
-        <label>Email</label>
-        <input type="text" class="form-control" formControlName="Email">
+<div class="form row">
+    <div class="col-sm leftSide">
+        <div class="leftSideInner">
+            <h3>
+                Welcome back!
+            </h3>
+            <p>
+                Developer with one year and six-months experience in development.  
+                
+            </p>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" formControlName="Password">
-    </div>
-    <button type="submit" >Sign In</button>
-</form>
+    <div class="col-sm rightSide">
+       
+        <form [formGroup]="loginGroup"  class="loginForm" (ngSubmit)="onSubmit()">
+            <h6>{{title}} </h6>
+            <span class="error"> {{errorMessage}}</span>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="Email"
+                 placeholder="Enter Your Email">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="Password"
+                 placeholder="Enter Password">
+            </div>
+            <div class="form-group formMessage">
+                <label for="rememberMe">
+                    <input type="checkbox" name="rememberMe" id= "rememberMe">
+                    Remember Me
+                </label>
+                <a>
+                    <label class="colorCode">
+                  
+                        Forget password?
+                    
+                    </label>
+                </a>    
+            </div>
+            <button type="submit" [disabled]="!loginGroup.valid" >Login</button>
+        </form>
+        <div class="newUser">
+            Don't have account? 
+            <span> 
+                <a class="colorCode" routerLink="/register"> 
+                    Sign Up
+                </a>
+            </span> 
+        </div>
+        
+    </div>    
 </div>  

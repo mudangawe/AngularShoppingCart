@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HTTPRequestService} from '../../services/httprequest.service'
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-shelf-cards',
   templateUrl: './shelf-cards.component.html',
@@ -8,7 +9,8 @@ import {HTTPRequestService} from '../../services/httprequest.service'
 export class ShelfCardsComponent implements OnInit {
   displayProduct: any;
 
-  constructor(private serivce: HTTPRequestService) {
+  constructor(private serivce: HTTPRequestService,
+              private router:Router) {
     this.getShelves();
    }
 
@@ -21,7 +23,10 @@ export class ShelfCardsComponent implements OnInit {
   setDisplayData(products)
   { 
     this.displayProduct = products
-    console.log(this.displayProduct)
+  }
+  navigating(index)
+  { 
+    this.router.navigateByUrl('/'+ this.displayProduct[index].category)
   }
 
 }

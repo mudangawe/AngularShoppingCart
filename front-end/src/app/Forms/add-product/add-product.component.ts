@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl, Validators} from '@angular/forms'
 import {HTTPRequestService} from '../../services/httprequest.service'
 import {IteamsService} from '../../services/iteams.service'
-import {MatDialog} from '@angular/material/dialog'
-import {MessageComponent} from '../../shared/dialogs/message/message.component';
 import * as XLSX from 'xlsx';
 
 type AOA = any[][];
@@ -31,7 +29,7 @@ export class AddProductComponent implements OnInit {
   }
   showPages:boolean =false;
 
-  constructor(private http: HTTPRequestService, public dialog: MatDialog, private Response:IteamsService  ) { 
+  constructor(private http: HTTPRequestService, private Response:IteamsService  ) { 
     this.createAddProductForm();
   }
 
@@ -59,14 +57,7 @@ export class AddProductComponent implements OnInit {
    this.openDialog();
   }
   openDialog() {
-    this.dialog.open(MessageComponent, {
-      data: {
-        title: 'Please wait',
-        message:'Adding product on progress',
-        height: '400px',
-        width: '600px',
-      }
-    });
+   
   }
   ClearForm(response)
   {

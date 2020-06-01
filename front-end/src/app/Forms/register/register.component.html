@@ -1,45 +1,42 @@
-<div class="registerForm">
-    <h2 align="center">Sign up </h2>
-    <form [formGroup]="registerGroup" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label>Name: </label>
-            <input formControlName="FirstName" class="form-control">
+<div class="form row">
+    <div class="col-sm rightSide">   
+        <form [formGroup]="registerGroup"  class="loginForm" (ngSubmit)="onSubmit()">
+            <h6>{{title}} </h6>
+            <span class="error"> {{errorMessage}}</span>
+            <div class="form-group">
+                <label>Full Names</label>
+                <input type="text" class="form-control" formControlName="FullName"
+                 placeholder="Enter Full Name">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="Email"
+                 placeholder="Enter Your Email">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="Password"
+                 placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" formControlName="ConfirmPassword"
+                 placeholder="Confirm Your Password">
+            </div>
+            <button type="submit" [disabled]="!registerGroup.valid" >Register</button>
+        </form>
+        <div class="newUser">
+            Already have an account? <span><a routerLink="/login"  class="colorCode"> Log in </a></span> 
         </div>
-        <div class="form-group">
-            <label>Middle Name(Optionally): </label>
-            <input formControlName="MiddleName" class="form-control">
+    </div>    
+    <div class="col-sm leftSide">
+        <div class="leftSideInner">
+            <h3>
+                Welcome!
+            </h3>
+            <p>
+                Developer with one year and six-months experience in development.  
+            </p>
         </div>
-        <div class="form-group">
-            <label>Last Name: </label>
-            <input formControlName="LastName" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Email: </label>
-            <input formControlName="Email" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Identity Number: </label>
-            <input formControlName="IdentityNumber" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Primary Number: </label>
-            <input formControlName="PhoneNumber" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Secondary Number: </label>
-            <input formControlName="AdditionalNumber" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Password: </label>
-            <input formControlName="Password" type="password" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Confirm Password: </label>
-            <input formControlName="ConfirmPassword" type="password" class="form-control">
-        </div>
-        <button type="submit">
-            Submit
-        </button>
-
-    </form>
-</div>
+    </div>
+</div>  

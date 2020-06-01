@@ -5,6 +5,7 @@ import {PaginationComponent} from '../../../shared/pagination/pagination.compone
 import {ReactiveFormsModule,FormsModule, NgModel} from '@angular/forms';
 import {ProductsComponent} from '../../../shared/products/products.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import {HttpClientTestingModule} from '@angular/common/http/testing'
 describe('DiningRoomComponent', () => {
   let component: DiningRoomComponent;
   let fixture: ComponentFixture<DiningRoomComponent>;
@@ -12,7 +13,7 @@ describe('DiningRoomComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DiningRoomComponent ,CategoriesComponent,PaginationComponent,ProductsComponent],
-      imports:[ReactiveFormsModule,FormsModule,NgbModule]
+      imports:[ReactiveFormsModule,FormsModule,NgbModule,HttpClientTestingModule]
     })
     .compileComponents();
   }));

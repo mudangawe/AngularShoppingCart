@@ -2,9 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { KitchenComponent } from './kitchen.component';
 import {CategoriesComponent} from '../../categories/categories.component';
 import {PaginationComponent} from '../../../shared/pagination/pagination.component';
- import {ReactiveFormsModule, FormsModule} from '@angular/forms'
- import {ProductsComponent} from '../../../shared/products/products.component'
- import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import {ReactiveFormsModule, FormsModule} from '@angular/forms'
+import {ProductsComponent} from '../../../shared/products/products.component'
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import {HttpClientTestingModule} from '@angular/common/http/testing'
 describe('KitchenComponent', () => {
   let component: KitchenComponent;
   let fixture: ComponentFixture<KitchenComponent>;
@@ -12,7 +13,7 @@ describe('KitchenComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ KitchenComponent,CategoriesComponent ,PaginationComponent,ProductsComponent],
-      imports:[ReactiveFormsModule,FormsModule,NgbModule]
+      imports:[ReactiveFormsModule,FormsModule,NgbModule,HttpClientTestingModule]
     })
     .compileComponents();
   }));

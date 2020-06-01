@@ -6,6 +6,7 @@ import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import {RouterTestingModule } from '@angular/router/testing';
 import {ProductsComponent} from '../../../shared/products/products.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import {HttpClientTestingModule} from '@angular/common/http/testing'
 describe('BedRoomComponent', () => {
   let component: BedRoomComponent;
   let fixture: ComponentFixture<BedRoomComponent>;
@@ -13,7 +14,8 @@ describe('BedRoomComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BedRoomComponent,CategoriesComponent,PaginationComponent,ProductsComponent],
-      imports:[ReactiveFormsModule,FormsModule,RouterTestingModule,NgbModule]
+      imports:[ReactiveFormsModule,FormsModule,RouterTestingModule,NgbModule,
+              HttpClientTestingModule]
     })
     .compileComponents();
   }));

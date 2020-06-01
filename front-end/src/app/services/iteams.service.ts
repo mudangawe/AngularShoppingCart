@@ -39,7 +39,7 @@ export class IteamsService {
     let index = this.getIndexOfItem(item)
     if (index == -1 ) {
       this.cartProduct = {
-        ProductID : item.productID,
+        ProductId : item.productId,
         Name: item.name,
         Quantity : 1,
         Price: item.price,
@@ -70,7 +70,7 @@ export class IteamsService {
   }
   getIndexOfItem(item) {
     for (let index = 0; index < this.cart.length; index++) {
-      if (this.cart[index].ProductID == item.productID) {
+      if (this.cart[index].ProductId == item.productId) {
         return index;
       }
     }

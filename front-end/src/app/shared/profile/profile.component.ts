@@ -8,7 +8,10 @@ import {UserDetailsService} from '../../services/user-details.service'
 })
 export class ProfileComponent implements OnInit {
 
-  profile:any;
+  profile = {
+    firstName:'',
+    lastName:''
+  }
 
   constructor(private user:UserDetailsService) { 
     if(this.user.anyUserlogIn())

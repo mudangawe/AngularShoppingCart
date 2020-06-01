@@ -5,8 +5,11 @@
             <div class="containerBody">
                 <span id="description"> {{item.name}}</span>
                 <p>  <span id="price"> R{{item.price}}</span>  </p>
-                <button style="width: 80%;" (click)="addToCart(item)">ADD TO CART</button>
+                <button style="width: 80%;" class="button" (click)="addToCart(item)">
+                    <span> Add To Cart</span>
+                </button>
             </div>
         </div>
     </div>
+    <span class="loader"></span>
 </div>
