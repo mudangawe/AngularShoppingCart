@@ -16,6 +16,9 @@ export class CartComponent implements OnInit {
   editIcon =faEdit;
   cart :Cartproduct[];
   total: any;
+  promo: 10;
+  taxAmount:any;
+  payableAmount:any;
   constructor(private items:IteamsService, private user: UserDetailsService, 
               private router:Router, private authoCookie: AuthoCookiesHandlerService,
               private http: HTTPRequestService) {
@@ -32,6 +35,9 @@ export class CartComponent implements OnInit {
   }
   totalPrice () {
     this.total =  this.cart.reduce((subTotal,item) => subTotal + item.SubTotal ,0 )
+    this.taxAmount =  this.total * 0.15;
+    this.payableAmount = this.total - this.taxAmount + 5;
+
   }
   quantityChanged(qty,index)
   {

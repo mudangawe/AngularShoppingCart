@@ -1,5 +1,6 @@
-.itemDetails{
+.itemDetails,#price{
     margin-top: 5%;
+    font-weight: normal;
 }
 .itemSummary{
     list-style-type: none;
@@ -18,8 +19,55 @@
     width: 100%;
     border: none;
 }
-.outBox{
+.cartTitle{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+}
+.container{
+    position: relative;
+    border: 1px solid;
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    background-color: whitesmoke;
+}
+.payment{
+    border-left: 1.5px solid ;
+    height: auto;
+    margin: 0.1rem;
+}
+.promoCode{
+    display: inline;
+    
+}
+.paymentContainer{
+   border: 1px solid;
+   margin: 2px;
+   padding: 5px;
+   padding-top: 1.8rem;
+}
+.promoButton{
+    background-color: #00A7FF ;
+    color: white;
+    border: none;
+    margin-left: 0.1rem;
+    height: 1.9rem;
+    width: 5.5rem;
+}
+.updateCart{
+    display: flex;
+    justify-content: space-around;
+}
+#Quantity{
+    width: 1.6rem ;
+    height: 1.2rem; 
+    text-align: center;
+}
+#clearCart{
+    padding: 0.3rem;
+    border: none;
+    background-color: grey;
+    color: white;
+    width: 100%;
+    border-radius: 0.2rem;
 }
