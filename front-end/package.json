@@ -40,7 +40,7 @@
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1000.0-rc.0",
+    "@angular-devkit/build-angular": "~15.0.4",
     "@angular/cli": "^10.0.0-rc.0",
     "@angular/compiler-cli": "~10.0.0-rc.2",
     "@angular/language-service": "~10.0.0-rc.2",
@@ -59,8 +59,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "^3.9.3",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "author": "Ndivhuwo Gift Ramashia",
   "license": "ISC"
